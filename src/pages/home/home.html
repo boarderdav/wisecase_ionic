@@ -1,14 +1,24 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+<ion-header style="background-color:#3AB9FF">
+  <ion-navbar style="background-color:#3AB9FF">
+
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>WiseCase</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="open(email)">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
+  <h2>Welcome to WiseCase</h2>
   <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
+    This is the home improvement mobile application built using the hybrid mobile platfom called ionic. 
   </p>
   <p>
     Take a look at the <code>src/pages/</code> directory to add or change tabs,

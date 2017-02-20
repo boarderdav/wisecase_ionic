@@ -1,6 +1,6 @@
 {
-  "name": "facebooklogin1",
-  "app_id": "",
+  "name": "wisecase_app",
+  "app_id": "3564f10c",
   "v2": true,
   "typescript": true,
   "gulpStartupTasks": [

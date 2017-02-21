@@ -11,19 +11,12 @@
 
 <ion-header>
 
-
-
   <ion-navbar>
-    <ion-buttons start>
-      <button ion-button menuToggle>
-        <ion-icon name="contact"></ion-icon>
-      </button>
-    </ion-buttons>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      Title
+      WiseCase
     </ion-title>
     <ion-buttons end>
       <button ion-button (click)="doClick()">
@@ -41,10 +34,7 @@
   <p>
     This is the home improvement mobile application built using the hybrid mobile platfom called ionic. 
   </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+
 
   <button ion-button color="light" [navPush]="tab2Root">Estimate Page</button>
 
@@ -52,7 +42,55 @@
 
 
   <button ion-button full color="secondary" [navPush]="postPage">Create New Estimate</button>
-  <button ion-button full color="warning" [navPush]="settingsTPage">Settings Template Page</button>
+  <button ion-button full color="warning" [navPush]="tab2Root">Estimate Page</button>
+  <!-- <button ion-button full color="warning" ng-click="location.path('../estimate/estimate')">Change Pages</button> -->
+
+
+<ion-icon name="heart"></ion-icon>
+<ion-icon name="calculator"></ion-icon>
+<ion-icon name="contacts"></ion-icon>
+<ion-icon name="heart"></ion-icon>
+
+
+  <ion-content class="card-background-page">
+
+  <ion-card>
+    <img src="https://placeimg.com/350/150/arch"/>
+    <div class="card-title">Estimates</div>
+    <div class="card-subtitle"></div>
+  </ion-card>
+
+  <ion-card>
+    <img src="https://placeimg.com/350/150/any"/>
+    <div class="card-title">Invoices</div>
+    <div class="card-subtitle"></div>
+  </ion-card>
+
+  <ion-card>
+    <img src="https://placeimg.com/350/150/people"/>
+    <div class="card-title">Contacts</div>
+    <div class="card-subtitle"></div>
+  </ion-card>
+
+  </ion-content>
+
+  
+
+  <ion-slides pager>
+
+  <ion-slide style="background-color: white">
+    <h2>Slide 1</h2>
+  </ion-slide>
+
+  <ion-slide style="background-color: orange">
+    <h2>Slide 2</h2>
+  </ion-slide>
+
+  <ion-slide style="background-color: red">
+    <h2>Slide 3</h2>
+  </ion-slide>
+
+</ion-slides>
 
 
 </ion-content>

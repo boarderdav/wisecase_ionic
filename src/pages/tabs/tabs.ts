@@ -4,7 +4,8 @@ import { HomePage } from '../home/home';
 import { EstimatePage } from '../estimate/estimate';
 import { InvoicesPage } from '../invoices/invoices';
 import { ContactPage } from '../contact/contact';
-import { SettingsPage } from '../settings/settings';
+//import { Database } from '@ionic/cloud-angular';
+//import { SettingsPage } from '../settings/settings';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -16,7 +17,7 @@ export class TabsPage {
   tab2Root: any = EstimatePage;
   tab3Root: any = InvoicesPage;
   tab4Root: any = ContactPage;
-  tab5Root: any = SettingsPage;
+  //tab5Root: any = SettingsPage;
 
 
   constructor() {

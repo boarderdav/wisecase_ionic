@@ -11,9 +11,11 @@
 
 <ion-header>
 
+
+
   <ion-navbar>
     <ion-buttons start>
-      <button ion-button>
+      <button ion-button menuToggle>
         <ion-icon name="contact"></ion-icon>
       </button>
     </ion-buttons>
@@ -50,6 +52,7 @@
 
 
   <button ion-button full color="secondary" [navPush]="postPage">Create New Estimate</button>
+  <button ion-button full color="warning" [navPush]="settingsTPage">Settings Template Page</button>
 
 
 </ion-content>

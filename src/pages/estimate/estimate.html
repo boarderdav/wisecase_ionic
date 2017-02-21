@@ -1,6 +1,11 @@
 <ion-header>
   <ion-navbar class="bar-positive" style="background-color:#3AB9FF">
     <ion-title style="color:white">Estimates</ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only [navPush]="settingsTPage">
+        <ion-icon style="color:#3AB9FF" name="add"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-buttons end>
       <button ion-button icon-only [navPush]="postPage">
         <ion-icon style="color:#3AB9FF" name="add"></ion-icon>

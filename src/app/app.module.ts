@@ -9,6 +9,7 @@ import { EstimatePage } from '../pages/estimate/estimate';
 import { PostPage } from '../pages/post/post';
 import { InvoicesPage } from '../pages/invoices/invoices';
 import { SettingsPage } from '../pages/settings/settings';
+import { SettingsTPage } from '../pages/settings-t/settings-t';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SettingsPage } from '../pages/settings/settings';
     EstimatePage,
     PostPage,
     InvoicesPage,
-    SettingsPage
+    SettingsPage,
+    SettingsTPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -35,7 +37,8 @@ import { SettingsPage } from '../pages/settings/settings';
     EstimatePage,
     PostPage,
     InvoicesPage,
-    SettingsPage
+    SettingsPage,
+    SettingsTPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

@@ -4,6 +4,8 @@ import { NavController } from 'ionic-angular';
 
 import { PostPage } from '../post/post';
 
+import { SettingsTPage } from '../settings-t/settings-t';
+
 @Component({
   selector: 'page-estimate',
   templateUrl: 'estimate.html'
@@ -12,6 +14,7 @@ import { PostPage } from '../post/post';
 export class EstimatePage {
 
   postPage = PostPage;
+  settingsTPage = SettingsTPage;
   constructor(public navCtrl: NavController) {
 
   }

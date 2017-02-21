@@ -1,23 +1,9 @@
+
+
+
 import { Component } from '@angular/core';
 
-import { NavController, App, MenuController } from 'ionic-angular';
-
-import { PostPage } from '../post/post';
-import { EstimatePage } from '../estimate/estimate';
-import { SettingsTPage } from '../settings-t/settings-t';
-
-@Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
-})
-
-export class HomePage {
-  postPage = PostPage;	
-  tab2Root: any = EstimatePage;
-  setttingsTPage = SettingsTPage;
-  constructor(public navCtrl: NavController) {  }
-
-}
+import { App, MenuController } from 'ionic-angular';
 
 
 @Component({
@@ -37,7 +23,7 @@ export class HomePage {
 </ion-content>
 `
 })
-export class BasicPage {
+export class SettingsTPage {
   constructor(app: App, menu: MenuController) {
     menu.enable(true);
   }
@@ -99,5 +85,3 @@ export class PageTwo { }
 `
 })
 export class PageThree { }
-
-

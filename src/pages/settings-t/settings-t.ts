@@ -3,6 +3,9 @@ import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 
+import { FacebookAuth, User, Auth } from '@ionic/cloud-angular';
+
+
 //import { HomePage } from '../home/home';
 
 import { TabsPage } from '../tabs/tabs';
@@ -19,8 +22,13 @@ export class SettingsTPage {
   // postPage = PostPage;
   settingsTPage = SettingsTPage;
   homePage = TabsPage;
-  constructor(public navCtrl: NavController) {
+  constructor(public facebookAuth: FacebookAuth, public user: User, public navCtrl: NavController, public auth:Auth) {}
 
+  doFacebook() {
+    console.log('do FB');
+    this.facebookAuth.login().then(() => {
+      this.navCtrl.setRoot(TabsPage);
+    });
   }
 
 }

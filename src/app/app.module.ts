@@ -16,6 +16,11 @@ import { SettingsTPage } from '../pages/settings-t/settings-t';
 const cloudSettings: CloudSettings = {
   'core': {
     'app_id': '3564f10c'
+  },
+  'auth': {
+    'facebook': {
+      'scope': ['permission1', 'permission2']
+    }
   }
 };
 

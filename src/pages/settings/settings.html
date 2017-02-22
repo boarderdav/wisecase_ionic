@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -7,7 +7,17 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let item of items" (click)="openSettingsPage(item)" icon-left>
+      <ion-icon [name]="'logo-' + item.icon" [ngStyle]="{'color': item.color}" item-left></ion-icon>
+      {{ item.title }}
+    </button>
+  </ion-list>
+</ion-content> -->
+
+
+<!-- <ion-content padding>
   <h3>Ionic Menu Starter</h3>
 
   <p>
@@ -15,4 +25,4 @@
   </p>
 
   <button ion-button secondary menuToggle>Toggle Menu</button>
-</ion-content>
+</ion-content> -->

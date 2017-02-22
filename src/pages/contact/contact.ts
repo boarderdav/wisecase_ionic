@@ -11,18 +11,22 @@ import { Database } from '@ionic/cloud-angular';
 
 export class ContactPage {
   public chats: Array<string>;
+  public message:string = '';
 
-  constructor(public navCtrl: NavController, public db: Database) {
+  constructor(public navCtrl: NavController, public db:Database) {
     this.db.connect();
-    this.db.collection('chats').watch().subscribe( (chats) => {
+    this.db.collection('chats').order('created','descending').watch().subscribe( (chats) => {
+      console.dir(chats);
       this.chats = chats;
     }, (error) => {
       console.error(error);
     });
+
   }
 
-  sendMessage(message: string) {
-    this.db.collection('chats').store({text: message, time: Date.now()});
+  sendMessage() {
+    this.db.collection('chats').store({text:this.message, created:Date.now()});
   }
+
 
 }

@@ -8,6 +8,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { PostPage } from '../pages/post/post';
 import { SettingsPage } from '../pages/settings/settings';
+import { SettingsTPage } from '../pages/settings-t/settings-t';
 
 
 @Component({
@@ -15,9 +16,11 @@ import { SettingsPage } from '../pages/settings/settings';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage = TabsPage;
+  // rootPage = TabsPage;
+  rootPage = SettingsTPage;
   //rootPage: any = SettingsPage;
   postPage = PostPage;
+  settingsPage = SettingsPage
 
   pages: Array<{title: string, component: any}>;
 
@@ -26,9 +29,9 @@ export class MyApp {
 
   // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'My Company', component: SettingsPage },
-      { title: 'Settings', component: PostPage },
-      { title: 'Privacy', component: SettingsPage },
+      { title: 'Home', component: TabsPage },
+      { title: 'Settings', component: SettingsPage },
+      { title: 'Privacy', component: PostPage },
       { title: 'Sign out', component: PostPage }
     ];
 

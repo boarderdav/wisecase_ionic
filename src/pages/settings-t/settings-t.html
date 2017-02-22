@@ -7,13 +7,35 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>settingsT</ion-title>
+    <ion-title>Sign In</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content style="background-color:#2b4367" padding>
+
+<ion-list>
+
+  <ion-item>
+    <ion-input type="text" placeholder="Username"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="password" placeholder="Password"></ion-input>
+  </ion-item>
+
+</ion-list>
+
+  <div padding>
+    <button ion-button color="primary" block [navPush]="homePage">Sign In</button>
+  </div>
+
+   <div padding>
+    <button ion-button color="light" block [navPush]="homePage">Home Page</button>
+  </div>
+
+
 
 </ion-content>
 

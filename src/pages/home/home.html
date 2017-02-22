@@ -18,11 +18,6 @@
     <ion-title>
       WiseCase
     </ion-title>
-    <ion-buttons end>
-      <button ion-button (click)="doClick()">
-        <ion-icon name="more"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -43,13 +38,9 @@
 
   <button ion-button full color="secondary" [navPush]="postPage">Create New Estimate</button>
   <button ion-button full color="warning" [navPush]="tab2Root">Estimate Page</button>
+  <button ion-button full color="warning" [navPush]="settingsTPage">Settings T Page</button>
   <!-- <button ion-button full color="warning" ng-click="location.path('../estimate/estimate')">Change Pages</button> -->
 
-
-<ion-icon name="heart"></ion-icon>
-<ion-icon name="calculator"></ion-icon>
-<ion-icon name="contacts"></ion-icon>
-<ion-icon name="heart"></ion-icon>
 
 
   <ion-content class="card-background-page">
@@ -73,24 +64,6 @@
   </ion-card>
 
   </ion-content>
-
-  
-
-  <ion-slides pager>
-
-  <ion-slide style="background-color: white">
-    <h2>Slide 1</h2>
-  </ion-slide>
-
-  <ion-slide style="background-color: orange">
-    <h2>Slide 2</h2>
-  </ion-slide>
-
-  <ion-slide style="background-color: red">
-    <h2>Slide 3</h2>
-  </ion-slide>
-
-</ion-slides>
 
 
 </ion-content>

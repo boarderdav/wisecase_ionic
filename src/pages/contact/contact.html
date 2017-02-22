@@ -25,21 +25,19 @@
       <ion-icon name="contacts" item-left></ion-icon>
       @boarderdav
     </ion-item>
-    <ion-item>
-      <ion-icon name="contacts" item-left></ion-icon>
-      @boarderdav
-    </ion-item>
-    <ion-item>
-      <ion-icon name="contacts" item-left></ion-icon>
-      @boarderdav
-    </ion-item>
-    <ion-item>
-      <ion-icon name="contacts" item-left></ion-icon>
-      @boarderdav
-    </ion-item>
-    <ion-item>
-      <ion-icon name="contacts" item-left></ion-icon>
-      @boarderdav
+  </ion-list>
+
+
+  <ion-item>
+    <ion-label>Message</ion-label>
+    <ion-input type="text" [(ngModel)]="message"></ion-input>
+  </ion-item>
+  <button ion-button block (click)="sendMessage()">Send</button>
+
+  <ion-list>
+    <ion-item *ngFor="let chat of chats">
+      <h2>{{chat.text}}</h2>
+      <p>Posted {{chat.created | date}} at {{ chat.created | date:'shortTime' }}</p>
     </ion-item>
   </ion-list>
 

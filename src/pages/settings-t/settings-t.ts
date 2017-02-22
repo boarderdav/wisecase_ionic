@@ -1,87 +1,35 @@
 
-
-
 import { Component } from '@angular/core';
 
-import { App, MenuController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 
+//import { HomePage } from '../home/home';
+
+import { TabsPage } from '../tabs/tabs';
+
+// import { SettingsTPage } from '../settings-t/settings-t';
 
 @Component({
-  template: `
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle icon-only>
-      <ion-icon name='menu'></ion-icon>
-    </button>
-    <ion-title>
-      Friends
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-<ion-content padding>
-  <button ion-button block menuToggle>Toggle Menu</button>
-</ion-content>
-`
+  selector: 'page-estimate',
+  templateUrl: 'settings-t.html'
 })
+
 export class SettingsTPage {
-  constructor(app: App, menu: MenuController) {
-    menu.enable(true);
+
+  // postPage = PostPage;
+  settingsTPage = SettingsTPage;
+  homePage = TabsPage;
+  constructor(public navCtrl: NavController) {
+
   }
+
 }
 
-@Component({
-  template: `
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle icon-only>
-      <ion-icon name='menu'></ion-icon>
-    </button>
-    <ion-title>
-      Friends
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-<ion-content padding>
-  <button ion-button block menuToggle>Toggle Menu</button>
-</ion-content>
-`
-})
-export class PageOne { }
 
-@Component({
-  template: `
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle icon-only>
-      <ion-icon name='menu'></ion-icon>
-    </button>
-    <ion-title>
-      Friends
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-<ion-content padding>
-  <button ion-button block menuToggle>Toggle Menu</button>
-</ion-content>
-`
-})
-export class PageTwo { }
+// export class SettingsTPage {
+//   constructor(app: App, menu: MenuController) {
+//     menu.enable(true);
+//   }
+// }
 
-@Component({
-  template: `
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle icon-only>
-      <ion-icon name='menu'></ion-icon>
-    </button>
-    <ion-title>
-      Friends
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-<ion-content padding>
-  <button ion-button block menuToggle>Toggle Menu</button>
-</ion-content>
-`
-})
-export class PageThree { }
+

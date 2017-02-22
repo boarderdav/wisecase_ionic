@@ -1,6 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
@@ -10,6 +11,13 @@ import { PostPage } from '../pages/post/post';
 import { InvoicesPage } from '../pages/invoices/invoices';
 import { SettingsPage } from '../pages/settings/settings';
 import { SettingsTPage } from '../pages/settings-t/settings-t';
+
+
+const cloudSettings: CloudSettings = {
+  'core': {
+    'app_id': '3564f10c'
+  }
+};
 
 @NgModule({
   declarations: [
@@ -24,9 +32,12 @@ import { SettingsTPage } from '../pages/settings-t/settings-t';
     SettingsPage,
     SettingsTPage
   ],
+
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    CloudModule.forRoot(cloudSettings)
   ],
+
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -40,6 +51,10 @@ import { SettingsTPage } from '../pages/settings-t/settings-t';
     SettingsPage,
     SettingsTPage
   ],
+
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
+
 export class AppModule {}
+
+

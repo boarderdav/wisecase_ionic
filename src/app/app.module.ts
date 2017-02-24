@@ -13,6 +13,7 @@ import { SettingsPage } from '../pages/settings/settings';
 import { SettingsTPage } from '../pages/settings-t/settings-t';
 
 
+
 const cloudSettings: CloudSettings = {
   'core': {
     'app_id': '3564f10c'

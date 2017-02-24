@@ -5,6 +5,8 @@ import { NavController } from 'ionic-angular';
 
 import { FacebookAuth, User, Auth } from '@ionic/cloud-angular';
 
+//import { NativeStorage } from 'ionic-native';
+
 
 //import { HomePage } from '../home/home';
 
@@ -30,6 +32,41 @@ export class SettingsTPage {
       this.navCtrl.setRoot(TabsPage);
     });
   }
+
+
+
+  // login() {
+  //   facebookConnectPlugin.login(['email'], function(response) {
+  //     alert('Logged in');
+  //     alert(JSON.stringify(response.authResponse));
+  //   }, function(error){
+  //     alert(error);
+  //   })
+  // }
+
+  // getdetails() {
+  //   facebookConnectPlugin.getLoginStatus((response) => {
+  //     if(response.status == "connected") {
+  //       facebookConnectPlugin.api('/' + response.authResponse.userID + '?fields=id,name,gender',[],function onSuccess(result) {
+  //         alert(JSON.stringify(result));
+  //       },
+  //       function onError(error) {
+  //         alert(error);
+  //       }
+  //       );
+  //     }
+  //     else {
+  //       alert('Not logged in');
+  //     }
+  //   })
+  // }
+
+  // logout() {
+  //   facebookConnectPlugin.logout((response) => {
+  //     alert(JSON.stringify(response));
+  //   })
+  // }
+
 
 }
 

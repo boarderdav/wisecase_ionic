@@ -1,6 +1,6 @@
 # Wisecase Ionic Hybrid Mobile Application
 ## Prerequisites
-###Install Homebrew on Mac
+### Install Homebrew on Mac
         xcode-select --install
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         brew doctor

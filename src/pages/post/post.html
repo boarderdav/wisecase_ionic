@@ -49,8 +49,9 @@
 
   </ion-list>
 
-      <button ion-button block (click)="createPost()">Finish</button>
-
+      <button ion-button block [navPush]="tab2Root" (click)="createPost()">Finish</button>
+<!--       <button ion-button full color="light" [navPush]="tab2Root">Estimate Page</button>
+ -->
 
   <!-- <ion-list>
 
@@ -88,11 +89,11 @@
       Contracts & Signature
     </ion-list-header>
 
-    <ion-item>
+<!--     <ion-item>
       <ion-icon name='flash' item-left></ion-icon>
       Contract
       <ion-note item-right>None ></ion-note>
-    </ion-item>
+    </ion-item> -->
 
     <ion-item>
       <ion-toggle checked="true"></ion-toggle>
@@ -113,7 +114,7 @@
 
   </ion-list>
 
-  <ion-list>
+<!--   <ion-list>
     <ion-list-header>
       List of Posted Estimates
     </ion-list-header>
@@ -138,15 +139,12 @@
       <button ion-button color="light">Draft</button>
     </ion-item>
 
-  </ion-list>
+  </ion-list> -->
 
 
-  <ion-list>
-    <ion-item *ngFor="let post of posts">
-      <h2>{{post.name}}</h2>
-      <p>Posted {{post.created | date}} - $ {{ post.price }}</p>
-    </ion-item>
-  </ion-list>
+
+
+
 
 <!--       description:this.postsMessage, 
       type:this.postsTitle, 

@@ -13,8 +13,30 @@
 
 <ion-content>
   <ion-list>
+  <!-- <ion-list reorder="true"> -->
+
     <!-- <button ion-button full color="secondary" [navPush]="postPage">Create New Estimate</button> -->
-    <ion-list-header style="background-color:#3AB9FF; color:white">February 2017</ion-list-header>
+    <ion-list-header style="background-color:#3AB9FF; color:white">Newest</ion-list-header>
+
+    <!--       description:this.postsMessage, 
+      type:this.postsTitle, 
+      name:this.postsName, 
+      date:this.myDate, 
+      price:this.postsEstimate,
+      created:Date.now() --> 
+
+    <ion-item *ngFor="let post of posts">
+      <ion-icon name="contact" item-left></ion-icon>
+      {{post.name}}<br>
+      <p>{{ post.date | date }} - #4</p>
+      <p>{{ post.description }} </p>
+      <ion-icon name="mail" item-right></ion-icon>
+      <ion-icon name="calculator" item-right></ion-icon>
+      <p item-right>$ {{ post.price }}<br>
+      <button ion-button color="light">Draft</button>
+    </ion-item>
+
+
     <ion-item>
       <ion-icon name="contacts" item-left></ion-icon>
       Richard Hendricks<br>
@@ -22,7 +44,7 @@
       <ion-icon name="mail" item-right></ion-icon>
       <ion-icon name="calculator" item-right></ion-icon>
       <p item-right>$175.63<br>
-      <button ion-button color="light">Draft</button>
+      <button ion-button color="default">Pending</button>
     </ion-item>
 
     <ion-item>
@@ -88,7 +110,7 @@
       <ion-icon name="mail" item-right></ion-icon>
       <ion-icon name="calculator" item-right></ion-icon>
       <p item-right>$175.63<br>
-      <button ion-button color="light">Draft</button>
+      <button ion-button color="secondary">Sent</button>
     </ion-item>
 
     <ion-item>

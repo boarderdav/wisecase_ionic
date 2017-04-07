@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Database } from '@ionic/cloud-angular';
+import { EstimatePage } from '../estimate/estimate';
+
 
 @Component({
   selector: 'page-post',
@@ -14,6 +16,7 @@ export class PostPage {
   public postsName:string = '';
   public myDate:string = '';
   public postsEstimate:any = '';
+  tab2Root: any = EstimatePage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public db:Database) {
   	this.db.connect();

@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-
 import { NavController } from 'ionic-angular';
-
 import { Database } from '@ionic/cloud-angular';
 
 @Component({

@@ -14,45 +14,45 @@
   <ion-list no-border>
 
     <ion-list-header>
-      Client
+      Create Quote
     </ion-list-header>
 
     <ion-item>
       <ion-icon name='contact' item-left></ion-icon>
-      Add Client
-      <ion-note item-right>
-      >
-      </ion-note>
+      <ion-label>Client Name</ion-label>
+      <ion-input type="text" [(ngModel)]="postsName"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-toggle checked="false"></ion-toggle>
-      <ion-label>
-        Type of Job
-      </ion-label>
-      <ion-icon name='body' item-left></ion-icon>
+      <ion-icon name='hammer' item-left></ion-icon>
+      <ion-label>Type of Job</ion-label>
+      <ion-input type="text" [(ngModel)]="postsTitle"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-icon name='leaf' item-left></ion-icon>
-      Project Type
-      <ion-icon name='rose' item-right color="secondary"></ion-icon>
+      <ion-icon name='calendar' item-left></ion-icon>
+      <ion-label>Date</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
     </ion-item>
 
     <ion-item>
-      <ion-icon name='flask' item-left></ion-icon>
-      Solutions
-      <ion-note item-right>
-      Fixes
-      </ion-note>
+      <ion-icon name='cash' item-left></ion-icon>
+      <ion-label>Price  $</ion-label>
+      <ion-input type="any" [(ngModel)]="postsEstimate"></ion-input>
     </ion-item>
 
+    <ion-item>
+      <ion-label color="primary" floating>Job Description</ion-label>
+      <ion-input type="text" [(ngModel)]="postsMessage"></ion-input>
+    </ion-item>
 
 
   </ion-list>
 
+      <button ion-button block (click)="createPost()">Finish</button>
 
-  <ion-list>
+
+  <!-- <ion-list>
 
     <ion-list-header>
       Description
@@ -80,7 +80,7 @@
     </ion-item>
 
 
-  </ion-list>
+  </ion-list> -->
 
   <ion-list>
 
@@ -112,6 +112,48 @@
 
 
   </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      List of Posted Estimates
+    </ion-list-header>
+    <ion-item *ngFor="let post of posts">
+      <ion-icon name="contact" item-left></ion-icon>
+      {{post.name}}<br>
+      <p>{{ post.date | date }} - #4</p>
+      <p>{{ post.description }} </p>
+      <ion-icon name="mail" item-right></ion-icon>
+      <ion-icon name="calculator" item-right></ion-icon>
+      <p item-right>$ {{ post.price }}<br>
+      <button ion-button color="light">Draft</button>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="contacts" item-left></ion-icon>
+      Richard Hendricks<br>
+      <p>February 14 - #4</p>
+      <ion-icon name="mail" item-right></ion-icon>
+      <ion-icon name="calculator" item-right></ion-icon>
+      <p item-right>$175.63<br>
+      <button ion-button color="light">Draft</button>
+    </ion-item>
+
+  </ion-list>
+
+
+  <ion-list>
+    <ion-item *ngFor="let post of posts">
+      <h2>{{post.name}}</h2>
+      <p>Posted {{post.created | date}} - $ {{ post.price }}</p>
+    </ion-item>
+  </ion-list>
+
+<!--       description:this.postsMessage, 
+      type:this.postsTitle, 
+      name:this.postsName, 
+      date:this.myDate, 
+      price:this.postsEstimate,
+      created:Date.now() -->
 
 
 

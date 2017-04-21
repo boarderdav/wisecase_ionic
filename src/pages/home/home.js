@@ -27,3 +27,4 @@ module.controller('ThisCtrl', function($cordovaEmailComposer) {
    // user cancelled email
  });
 });
+

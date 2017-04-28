@@ -31,10 +31,10 @@
 <ion-content style="background-image: url('assets/icon/wisecaseBG.png'); background-size: 100% 100%;
     background-repeat: no-repeat" padding>
 
-  <h2>Welcome to WiseCase</h2>
+<!--   <h2>Welcome to WiseCase</h2>
   <p>
     This is the home improvement mobile application built using the hybrid mobile platfom called ionic. 
-  </p>
+  </p> -->
 
 
   <button ion-button full color="secondary" [navPush]="postPage">Create New Estimate</button>
@@ -44,6 +44,21 @@
   <button ion-button full color="danger" [navPush]="tab2Root">Estimate Page</button>
 
   <!-- <button ion-button full color="warning" ng-click="location.path('../estimate/estimate')">Change Pages</button> -->
+
+
+ <!-- this fab is placed at bottom right -->
+ <ion-fab bottom right >
+   <button ion-fab>Share</button>
+   <ion-fab-list side="top">
+     <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+     <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+     <button ion-fab><ion-icon name="logo-youtube"></ion-icon></button>
+   </ion-fab-list>
+   <ion-fab-list side="left">
+     <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+   </ion-fab-list>
+ </ion-fab>
+
 
 
 

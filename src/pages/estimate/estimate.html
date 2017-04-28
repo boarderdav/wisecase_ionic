@@ -1,5 +1,10 @@
 <ion-header>
   <ion-navbar class="bar-positive">
+
+      <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+
+    </button>
     <ion-title style="color:white">Estimates</ion-title>
     <ion-buttons end>
       <button ion-button icon-only [navPush]="postPage">
@@ -18,7 +23,7 @@
     <!-- <button ion-button full color="secondary" [navPush]="postPage">Create New Estimate</button> -->
     <ion-list-header style="background-color:#3AB9FF; color:white">Newest</ion-list-header>
 
-    <!--       description:this.postsMessage, 
+    <!--       description:this.postsMessage,   
       type:this.postsTitle, 
       name:this.postsName, 
       date:this.myDate, 
@@ -124,4 +129,11 @@
     </ion-item>
   </ion-list>
 
+<button class="button_fixed" ion-button color="secondary" block [navPush]="homePage">Sign Up</button>
+
 </ion-content>
+
+<button  ion-button color="secondary" block [navPush]="homePage">Sign Up</button>
+
+
+

@@ -8,13 +8,13 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
+  <ion-content id="grad">
     <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+      <button id="clearbackground" style="color:#ffffff" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
-      <button ion-item (click)="openPage(settingsTPage)">Login</button>
-      <button ion-item [navPush]="settingsTPage">Feedback</button>
+      <button id="clearbackground" style="color:#ffffff" ion-item (click)="openPage(settingsTPage)">Login</button>
+      <button id="clearbackground" style="color:#ffffff" ion-item [navPush]="settingsTPage">Feedback</button>
     </ion-list>
   </ion-content>
 

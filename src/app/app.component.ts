@@ -11,6 +11,9 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { PostPage } from '../pages/post/post';
 import { SettingsPage } from '../pages/settings/settings';
 import { SettingsTPage } from '../pages/settings-t/settings-t';
+import { ContactPage } from '../pages/contact/contact';
+import { EstimatePage } from '../pages/estimate/estimate';
+import { InvoicesPage } from '../pages/invoices/invoices';
 
 
 @Component({
@@ -31,6 +34,12 @@ export class MyApp {
 
   // used for an example of ngFor and navigation
     this.pages = [
+      { title: 'Dashboard', component: TabsPage },
+      { title: 'Estimate', component: EstimatePage },
+      { title: 'Invoices', component: InvoicesPage },
+      { title: 'Clients', component: ContactPage },
+      { title: 'Profile', component: ContactPage },
+
       { title: 'Home', component: TabsPage },
       { title: 'Settings', component: SettingsPage },
       { title: 'Privacy', component: PostPage },

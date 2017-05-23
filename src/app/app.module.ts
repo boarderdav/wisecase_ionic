@@ -2,6 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+import { BrowserModule } from '@angular/platform-browser';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
@@ -14,19 +15,19 @@ import { SettingsTPage } from '../pages/settings-t/settings-t';
 
 
 // Import the AF2 Module
-// import { AngularFireModule } from 'angularfire2';
-// import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 
 // // AF2 Settings
-// export const firebaseConfig = {
-//   apiKey: "AIzaSyAm-Rxaiw5WICb0Z-O-Kbdr7NXx2Zu5aBk",
-//   authDomain: "wisecase-bcd14.firebaseapp.com",
-//   databaseURL: "https://wisecase-bcd14.firebaseio.com",
-//   projectId: "wisecase-bcd14",
-//   storageBucket: "wisecase-bcd14.appspot.com",
-//   messagingSenderId: "557198014694"
-// };
+export const firebaseConfig = {
+  apiKey: "AIzaSyAm-Rxaiw5WICb0Z-O-Kbdr7NXx2Zu5aBk",
+  authDomain: "wisecase-bcd14.firebaseapp.com",
+  databaseURL: "https://wisecase-bcd14.firebaseio.com",
+  projectId: "wisecase-bcd14",
+  storageBucket: "wisecase-bcd14.appspot.com",
+  messagingSenderId: "557198014694"
+};
 
 
 
@@ -56,10 +57,10 @@ const cloudSettings: CloudSettings = {
   ],
 
   imports: [
-    IonicModule.forRoot(MyApp),
-    CloudModule.forRoot(cloudSettings)
-    // AngularFireModule.initializeApp(firebaseConfig),
-    // AngularFireDatabaseModule
+    IonicModule.forRoot(MyApp), BrowserModule,
+    CloudModule.forRoot(cloudSettings),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
 
   bootstrap: [IonicApp],

@@ -30,6 +30,21 @@
       price:this.postsEstimate,
       created:Date.now() --> 
 
+<!-- Example working Firebase -->
+  <ion-list>
+    <ion-item class="text" *ngFor="let item of items | async">
+      {{item.$value}}
+    </ion-item>
+  </ion-list>
+
+  <h1>{{ item | async | json }}</h1>
+  <input type="text" #newname placeholder="Name" />
+  <input type="text" #newsize placeholder="Size" />
+  <br />
+  <button (click)="save(newname.value)">Set Name</button>
+  <button (click)="update(newsize.value)">Update Size</button>
+  <button (click)="delete()">Delete</button>
+
     <ion-item *ngFor="let post of posts">
       <ion-icon name="contact" item-left></ion-icon>
       {{post.name}}<br>

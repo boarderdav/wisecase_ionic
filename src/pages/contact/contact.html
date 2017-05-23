@@ -42,6 +42,10 @@
       <ion-icon name="contact" item-left></ion-icon>
       @boarderdav
     </ion-item>
+    <ion-item>
+      <ion-icon name="contact" item-left></ion-icon>
+      @djenkins
+    </ion-item>
 
   </ion-list>
 
@@ -52,15 +56,23 @@
   </ion-item>
   <button ion-button block (click)="sendMessage()">Send</button>
 
+
+<!--   New Firebasedata Lists -->
+  <ion-list-header>Firebase List</ion-list-header>
   <ion-list>
-    <ion-item *ngFor="let chat of chats">
-      <h2>{{chat.text}}</h2>
-      <p>Posted {{chat.created | date}} at {{ chat.created | date:'shortTime' }}</p>
+    <ion-item class="text" *ngFor="let item of items | async">
+      {{item.$value}}
     </ion-item>
   </ion-list>
 
 
-
+<!--   <ion-list>
+    <ion-item *ngFor="let chat of chats">
+      <h2>{{chat.text}}</h2>
+      <p>Posted {{chat.created | date}} at {{ chat.created | date:'shortTime' }}</p>
+    </ion-item>
+  </ion-list> -->
 
 
 </ion-content>
+

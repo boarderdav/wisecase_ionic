@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 // import { Facebook, NativeStorage } from 'ionic-native';
 
 
@@ -17,7 +18,8 @@ import { InvoicesPage } from '../pages/invoices/invoices';
 
 
 @Component({
-  templateUrl: 'app.html'
+  selector: 'app-root',
+  templateUrl: 'app.html',
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
@@ -54,45 +56,6 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       Splashscreen.hide();
-
-      // .state('contact', {
-      //   url: '/contact',
-      //   templateUrl: 'pages/contact.html',
-      //   controller: 'ContactCtrl'
-      // })
-
-      // .factory('Messages', function($firebaseArray) {
-      //    var messagesRef = new Firebase("https://wisecase-bcd14.firebaseio.com");
-      //    return $firebaseArray(messagesRef);
-      // })
-
-      // .controller('ContactCtrl', function($scope, $state, $ionicPopup, Messages) {
- 
-      // $scope.messages = Messages;
-     
-      // $scope.addMessage = function() {
-     
-      //  $ionicPopup.prompt({
-      //    title: 'Need to get something off your chest?',
-      //    template: 'Let everybody know!'
-      //  }).then(function(res) {
-      //     $scope.messages.$add({
-      //       "message": res
-      //     });
-      //  });
-      // };
-     
-      // $scope.logout = function() {
-      //   var ref = new Firebase("https://wisecase-bcd14.firebaseio.com");
-      //   ref.unauth();
-      //   $state.go('login');
-      // };
- 
-      // })
-
-
-
-
     });
   }
 
@@ -102,21 +65,12 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
 
+}
 
 
-
-
-    //platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      //StatusBar.styleDefault();
-      //Splashscreen.hide();
-    //});
-  //}
-
-
-
-
-
-
+export class AppComponent {
+  items: FirebaseListObservable<any[]>;
+  constructor(db: AngularFireDatabase) {
+    this.items = db.list('/items');
+  }
 }

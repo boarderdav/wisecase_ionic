@@ -42,5 +42,45 @@ export class ContactPage {
     this.db.collection('chats').store({text:this.message, created:Date.now()});
   }
 
+//   .state('chat', {
+//   url: '/chat',
+//   templateUrl: 'pages/chat.html',
+//   controller: 'ChatCtrl'
+// })
+
+
+
+
+//   .factory('Messages', function($firebaseArray) {
+//   var messagesRef = new Firebase("https://wisecase-bcd14.firebaseio.com/");
+//   return $firebaseArray(messagesRef);
+// })
+
+
+// .controller('ChatCtrl', function($scope, $state, $ionicPopup, Messages) {
+ 
+//   $scope.messages = Messages;
+ 
+//   $scope.addMessage = function() {
+ 
+//    $ionicPopup.prompt({
+//      title: 'Need to get something off your chest?',
+//      template: 'Let everybody know!'
+//    }).then(function(res) {
+//       $scope.messages.$add({
+//         "message": res
+//       });
+//    });
+//   };
+ 
+//   $scope.logout = function() {
+//     var ref = new Firebase("https://wisecase-bcd14.firebaseio.com/");
+//     ref.unauth();
+//     $state.go('login');
+//   };
+ 
+// })
+
+
 
 }

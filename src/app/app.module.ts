@@ -13,6 +13,22 @@ import { SettingsPage } from '../pages/settings/settings';
 import { SettingsTPage } from '../pages/settings-t/settings-t';
 
 
+// Import the AF2 Module
+// import { AngularFireModule } from 'angularfire2';
+// import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+
+// // AF2 Settings
+// export const firebaseConfig = {
+//   apiKey: "AIzaSyAm-Rxaiw5WICb0Z-O-Kbdr7NXx2Zu5aBk",
+//   authDomain: "wisecase-bcd14.firebaseapp.com",
+//   databaseURL: "https://wisecase-bcd14.firebaseio.com",
+//   projectId: "wisecase-bcd14",
+//   storageBucket: "wisecase-bcd14.appspot.com",
+//   messagingSenderId: "557198014694"
+// };
+
+
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -42,6 +58,8 @@ const cloudSettings: CloudSettings = {
   imports: [
     IonicModule.forRoot(MyApp),
     CloudModule.forRoot(cloudSettings)
+    // AngularFireModule.initializeApp(firebaseConfig),
+    // AngularFireDatabaseModule
   ],
 
   bootstrap: [IonicApp],

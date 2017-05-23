@@ -19,6 +19,10 @@
                         {
                             "xml": "<feature name=\"CordovaFacebook\"><param name=\"ios-package\" value=\"CDVFacebook\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"FirebasePlugin\"><param name=\"ios-package\" value=\"FirebasePlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -50,6 +54,26 @@
                         }
                     ]
                 }
+            },
+            "*/Entitlements-Debug.plist": {
+                "parents": {
+                    "aps-environment": [
+                        {
+                            "xml": "<string>development</string>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "*/Entitlements-Release.plist": {
+                "parents": {
+                    "aps-environment": [
+                        {
+                            "xml": "<string>production</string>",
+                            "count": 1
+                        }
+                    ]
+                }
             }
         }
     },
@@ -64,6 +88,9 @@
             "FACEBOOK_APP_ID": "1209143432537813",
             "FACEBOOK_DISPLAY_NAME": "WiseCase",
             "PACKAGE_NAME": "com.ionicframework.example533558"
+        },
+        "cordova-plugin-firebase": {
+            "PACKAGE_NAME": "com.ionicframework.app253650"
         }
     },
     "dependent_plugins": {},
@@ -98,6 +125,14 @@
             "pluginId": "cordova-plugin-facebook",
             "clobbers": [
                 "CordovaFacebook"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-firebase/www/firebase.js",
+            "id": "cordova-plugin-firebase.FirebasePlugin",
+            "pluginId": "cordova-plugin-firebase",
+            "clobbers": [
+                "FirebasePlugin"
             ]
         }
     ]

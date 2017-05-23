@@ -31,6 +31,14 @@ module.exports = [
         "clobbers": [
             "CordovaFacebook"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-firebase/www/firebase.js",
+        "id": "cordova-plugin-firebase.FirebasePlugin",
+        "pluginId": "cordova-plugin-firebase",
+        "clobbers": [
+            "FirebasePlugin"
+        ]
     }
 ];
 module.exports.metadata = 

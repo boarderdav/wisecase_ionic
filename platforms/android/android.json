@@ -11,6 +11,10 @@
                         {
                             "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"FirebasePlugin\"><param name=\"android-package\" value=\"org.apache.cordova.firebase.FirebasePlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -52,6 +56,16 @@
                             "xml": "<string name=\"facebook_app_id\">1209143432537813</string>",
                             "count": 1
                         }
+                    ],
+                    "/resources": [
+                        {
+                            "xml": "<string name=\"google_app_id\">@string/google_app_id</string>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<string name=\"google_api_key\">@string/google_api_key</string>",
+                            "count": 1
+                        }
                     ]
                 }
             },
@@ -70,6 +84,34 @@
                             "xml": "<provider android:authorities=\"com.facebook.app.FacebookContentProvider1209143432537813\" android:exported=\"true\" android:name=\"com.facebook.FacebookContentProvider\" />",
                             "count": 1
                         }
+                    ],
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WAKE_LOCK\" />",
+                            "count": 1
+                        }
+                    ],
+                    "/manifest/application": [
+                        {
+                            "xml": "<service android:name=\"org.apache.cordova.firebase.FirebasePluginMessagingService\"><intent-filter><action android:name=\"com.google.firebase.MESSAGING_EVENT\" /></intent-filter></service>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<service android:name=\"org.apache.cordova.firebase.FirebasePluginInstanceIDService\"><intent-filter><action android:name=\"com.google.firebase.INSTANCE_ID_EVENT\" /></intent-filter></service>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<receiver android:name=\"org.apache.cordova.firebase.OnNotificationOpenReceiver\" />",
+                            "count": 1
+                        }
                     ]
                 }
             }
@@ -85,6 +127,9 @@
         "cordova-plugin-facebook": {
             "FACEBOOK_APP_ID": "1209143432537813",
             "FACEBOOK_DISPLAY_NAME": "WiseCase",
+            "PACKAGE_NAME": "com.ionicframework.app253650"
+        },
+        "cordova-plugin-firebase": {
             "PACKAGE_NAME": "com.ionicframework.app253650"
         }
     },
@@ -103,11 +148,20 @@
             "clobbers": [
                 "CordovaFacebook"
             ]
+        },
+        {
+            "id": "cordova-plugin-firebase.FirebasePlugin",
+            "file": "plugins/cordova-plugin-firebase/www/firebase.js",
+            "pluginId": "cordova-plugin-firebase",
+            "clobbers": [
+                "FirebasePlugin"
+            ]
         }
     ],
     "plugin_metadata": {
         "cordova-plugin-console": "1.0.5",
         "cordova-plugin-device": "1.1.4",
-        "cordova-plugin-facebook": "0.2.2"
+        "cordova-plugin-facebook": "0.2.2",
+        "cordova-plugin-firebase": "0.1.20"
     }
 }

@@ -54,6 +54,45 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       Splashscreen.hide();
+
+      // .state('contact', {
+      //   url: '/contact',
+      //   templateUrl: 'pages/contact.html',
+      //   controller: 'ContactCtrl'
+      // })
+
+      // .factory('Messages', function($firebaseArray) {
+      //    var messagesRef = new Firebase("https://wisecase-bcd14.firebaseio.com");
+      //    return $firebaseArray(messagesRef);
+      // })
+
+      // .controller('ContactCtrl', function($scope, $state, $ionicPopup, Messages) {
+ 
+      // $scope.messages = Messages;
+     
+      // $scope.addMessage = function() {
+     
+      //  $ionicPopup.prompt({
+      //    title: 'Need to get something off your chest?',
+      //    template: 'Let everybody know!'
+      //  }).then(function(res) {
+      //     $scope.messages.$add({
+      //       "message": res
+      //     });
+      //  });
+      // };
+     
+      // $scope.logout = function() {
+      //   var ref = new Firebase("https://wisecase-bcd14.firebaseio.com");
+      //   ref.unauth();
+      //   $state.go('login');
+      // };
+ 
+      // })
+
+
+
+
     });
   }
 

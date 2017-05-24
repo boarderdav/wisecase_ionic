@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 
-import { FacebookAuth, User, Auth } from '@ionic/cloud-angular';
+// import { FacebookAuth, User, Auth } from '@ionic/cloud-angular';
 
 //import { NativeStorage } from 'ionic-native';
 
@@ -24,14 +24,14 @@ export class SettingsTPage {
   // postPage = PostPage;
   settingsTPage = SettingsTPage;
   homePage = TabsPage;
-  constructor(public facebookAuth: FacebookAuth, public user: User, public navCtrl: NavController, public auth:Auth) {}
+  constructor(public navCtrl: NavController) {}
 
-  doFacebook() {
-    console.log('do FB');
-    this.facebookAuth.login().then(() => {
-      this.navCtrl.setRoot(TabsPage);
-    });
-  }
+  // doFacebook() {
+  //   console.log('do FB');
+  //   this.facebookAuth.login().then(() => {
+  //     this.navCtrl.setRoot(TabsPage);
+  //   });
+  // }
 
 
 
@@ -68,7 +68,7 @@ export class SettingsTPage {
   // }
 
 
-}
+// }
 
 
 // export class SettingsTPage {
@@ -77,4 +77,4 @@ export class SettingsTPage {
 //   }
 // }
 
-
+}

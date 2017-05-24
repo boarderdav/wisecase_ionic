@@ -1,7 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+// import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -32,16 +32,16 @@ export const firebaseConfig = {
 
 
 
-const cloudSettings: CloudSettings = {
-  'core': {
-    'app_id': '3564f10c'
-  },
-  'auth': {
-    'facebook': {
-      'scope': ['permission1', 'permission2']
-    }
-  }
-};
+// const cloudSettings: CloudSettings = {
+//   'core': {
+//     'app_id': '3564f10c'
+//   },
+//   'auth': {
+//     'facebook': {
+//       'scope': ['permission1', 'permission2']
+//     }
+//   }
+// };
 
 @NgModule({
   declarations: [
@@ -59,7 +59,7 @@ const cloudSettings: CloudSettings = {
 
   imports: [
     IonicModule.forRoot(MyApp), BrowserModule,
-    CloudModule.forRoot(cloudSettings),
+    // CloudModule.forRoot(cloudSettings),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule

@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
-import { StatusBar, Splashscreen } from 'ionic-native';
+// import { StatusBar } from '@ionic-native/status-bar';
+// import { SplashScreen } from '@ionic-native/splash-screen';
+// import { StatusBar, Splashscreen } from 'ionic-native';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 // import { Facebook, NativeStorage } from 'ionic-native';
 
@@ -54,8 +56,8 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
-      Splashscreen.hide();
+      // StatusBar.styleLightContent();
+      // Splashscreen.hide();
     });
   }
 

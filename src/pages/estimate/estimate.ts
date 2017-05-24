@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ActionSheetController } from 'ionic-angular';
 // import { Database } from '@ionic/cloud-angular';
 import { PostPage } from '../post/post';
 import { SettingsTPage } from '../settings-t/settings-t';
-
-import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+// import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 
 
 @Component({
@@ -22,36 +22,150 @@ export class EstimatePage {
   // public postsEstimate:any = '';
 
   // Firebase Database List 
-  post: FirebaseObjectObservable<any[]>;
+  posts: FirebaseListObservable<any[]>;
 
   postPage = PostPage;
   settingsTPage = SettingsTPage;
-  constructor(public navCtrl: NavController, public navParams: NavParams, afDB: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public actionSheetCtrl: ActionSheetController, db: AngularFireDatabase) {
 
-    this.post = afDB.object('/posts');
-
-
-  	// this.db.connect();
-   //  this.db.collection('posts').order('created','descending').watch().subscribe( (posts) => {
-   //    console.dir(posts);
-   //    this.posts = posts;
-   //  }, (error) => {
-   //    console.error(error);
-   //  });
+    this.posts = db.list('/posts');
   }
 
+  addEstimate(){
+  let prompt = this.alertCtrl.create({
+    title: 'Create Estimate',
+    message: "Create a new estimate here.",
+    inputs: [
+      {
+        name: 'clientName',
+        placeholder: 'Client Name'
+      },
+      {
+        name: 'jobType',
+        placeholder: 'Type of Job'
+      },
+      {
+        name: 'estimateDate',
+        placeholder: 'Date'
+      },
+      {
+        name: 'estimatePrice',
+        placeholder: 'Estimate'
+      },
+      {
+        name: 'longDescription',
+        placeholder: 'Job Description'
+      },
+    ],
+    buttons: [
+      {
+        text: 'Cancel',
+        handler: data => {
+          console.log('Cancel clicked');
+        }
+      },
+      {
+        text: 'Save',
+        handler: data => {
+          this.posts.push({
+            clientName: data.clientName,
+            jobType: data.jobType,
+            estimateDate: data.estimateDate,
+            estimatePrice: data.estimatePrice,
+            longDescription: data.longDescription
+          });
+        }
+      }
+    ]
+  });
+  prompt.present();
+}
 
-// Working Save, Update, & Delete
-  save(newName: string) {
-    this.post.set({ name: newName });
-  }
-  update(newSize: string) {
-    this.post.update({ size: newSize });
-  }
-  delete() {
-    this.post.remove();
-  }
+showOptions(postId, clientName, jobType, estimateDate, estimatePrice, longDescription) {
+  let actionSheet = this.actionSheetCtrl.create({
+    title: 'What do you want to do?',
+    buttons: [
+      {
+        text: 'Delete Estimate',
+        role: 'destructive',
+        handler: () => {
+          this.removePost(postId);
+        }
+      },{
+        text: 'Update Estimate Details',
+        handler: () => {
+          this.updatePost(postId, clientName, jobType, estimateDate, estimatePrice, longDescription);
+        }
+      },{
+        text: 'Cancel',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }
+    ]
+  });
+  actionSheet.present();
+}
 
+removePost(postId: string){
+  this.posts.remove(postId);
+}
+
+updatePost(postId, clientName, jobType, estimateDate, estimatePrice, longDescription){
+  let prompt = this.alertCtrl.create({
+    title: 'Post Name',
+    message: "Update the Estimate.",
+    inputs: [
+      {
+        name: 'clientName',
+        placeholder: 'Client Name',
+        value: clientName
+      },
+      {
+        name: 'jobType',
+        placeholder: 'Type of Job',
+        value: jobType
+      },
+      {
+        name: 'estimateDate',
+        placeholder: 'Estimate Date',
+        value: estimateDate
+      },
+      {
+        name: 'estimatePrice',
+        placeholder: 'Estimate',
+        value: estimatePrice
+      },
+      {
+        name: 'longDescription',
+        placeholder: 'Job Description',
+        value: longDescription
+      }
+    ],
+    buttons: [
+      {
+        text: 'Cancel',
+        handler: data => {
+          console.log('Cancel clicked');
+        }
+      },
+      {
+        text: 'Save',
+        handler: data => {
+          this.posts.update(postId, {
+            clientName: data.clientName,
+            jobType: data.jobType,
+            estimateDate: data.estimateDate,
+            estimatePrice: data.estimatePrice,
+            longDescription: data.longDescription
+          });
+        }
+      }
+    ]
+  });
+  prompt.present();
+}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EstimatePage');

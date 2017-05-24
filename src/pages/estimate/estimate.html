@@ -10,6 +10,14 @@
       <button ion-button icon-only [navPush]="postPage">
         <ion-icon style="color:#3AB9FF" name="add"></ion-icon>
       </button>
+
+
+
+      <button ion-button icon-only (click)="addEstimate()">
+        <ion-icon style="color:#3AB9FF" name="add"></ion-icon>
+      </button>
+
+
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -37,24 +45,34 @@
     </ion-item>
   </ion-list>
 
-  <h1>{{ item | async | json }}</h1>
+<!--   <h1>{{ item | async | json }}</h1>
   <input type="text" #newname placeholder="Name" />
   <input type="text" #newsize placeholder="Size" />
   <br />
   <button (click)="save(newname.value)">Set Name</button>
   <button (click)="update(newsize.value)">Update Size</button>
-  <button (click)="delete()">Delete</button>
+  <button (click)="delete()">Delete</button> -->
 
-    <ion-item *ngFor="let post of posts">
+
+  <!--  <ion-item *ngFor="let post of post | async"> 
+
+   </ion-item>  -->
+
+
+   
+
+    <ion-item *ngFor="let post of posts | async">
       <ion-icon name="contact" item-left></ion-icon>
-      {{post.name}}<br>
-      <p>{{ post.date | date }} - #4</p>
-      <p>{{ post.description }} </p>
+      {{post.clientName}}<br>
+      <p>{{ post.estimateDate | date }} - #4</p>
+      <p>{{ post.longDescription }} </p>
       <ion-icon name="mail" item-right></ion-icon>
-      <ion-icon name="calculator" item-right></ion-icon>
-      <p item-right>$ {{ post.price }}<br>
+      <ion-icon name="more" item-right (click)="showOptions(posts.$key, post.clientName, post.jobType, post.estimateDate, post.estimatePrice, post.longDescription)"></ion-icon>
+      <p item-right>$ {{ post.estimatePrice }}<br>
       <button ion-button color="light">Draft</button>
     </ion-item>
+
+   <!--  <ion-buttons end><button ion-button icon-only  (click)="showOptions(song.$key, song.title)"><ion-icon name="more"></ion-icon></button></ion-buttons> -->
 
 
     <ion-item>

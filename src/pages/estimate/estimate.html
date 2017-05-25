@@ -31,43 +31,13 @@
     <!-- <button ion-button full color="secondary" [navPush]="postPage">Create New Estimate</button> -->
     <ion-list-header style="background-color:#3AB9FF; color:white">Newest</ion-list-header>
 
-    <!--       description:this.postsMessage,   
-      type:this.postsTitle, 
-      name:this.postsName, 
-      date:this.myDate, 
-      price:this.postsEstimate,
-      created:Date.now() --> 
-
-<!-- Example working Firebase -->
-  <ion-list>
-    <ion-item class="text" *ngFor="let item of items | async">
-      {{item.$value}}
-    </ion-item>
-  </ion-list>
-
-<!--   <h1>{{ item | async | json }}</h1>
-  <input type="text" #newname placeholder="Name" />
-  <input type="text" #newsize placeholder="Size" />
-  <br />
-  <button (click)="save(newname.value)">Set Name</button>
-  <button (click)="update(newsize.value)">Update Size</button>
-  <button (click)="delete()">Delete</button> -->
-
-
-  <!--  <ion-item *ngFor="let post of post | async"> 
-
-   </ion-item>  -->
-
-
-   
-
     <ion-item *ngFor="let post of posts | async">
       <ion-icon name="contact" item-left></ion-icon>
       {{post.clientName}}<br>
       <p>{{ post.estimateDate | date }} - #4</p>
       <p>{{ post.longDescription }} </p>
-      <ion-icon name="mail" item-right></ion-icon>
-      <ion-icon name="more" item-right (click)="showOptions(posts.$key, post.clientName, post.jobType, post.estimateDate, post.estimatePrice, post.longDescription)"></ion-icon>
+      <ion-icon name="mail" item-right (click)="sendEmail(isAvailable)"></ion-icon>
+      <ion-icon name="more" item-right (click)="showOptions(post.$key, post.clientName, post.jobType, post.estimateDate, post.estimatePrice, post.longDescription)"></ion-icon>
       <p item-right>$ {{ post.estimatePrice }}<br>
       <button ion-button color="light">Draft</button>
     </ion-item>

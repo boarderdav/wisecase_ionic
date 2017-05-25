@@ -3,6 +3,7 @@ import { NavController, NavParams, AlertController, ActionSheetController } from
 // import { Database } from '@ionic/cloud-angular';
 import { PostPage } from '../post/post';
 import { SettingsTPage } from '../settings-t/settings-t';
+import { EmailComposer } from '@ionic-native/email-composer';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 // import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 
@@ -26,7 +27,7 @@ export class EstimatePage {
 
   postPage = PostPage;
   settingsTPage = SettingsTPage;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public actionSheetCtrl: ActionSheetController, db: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public actionSheetCtrl: ActionSheetController, db: AngularFireDatabase, public emailComposer: EmailComposer) {
 
     this.posts = db.list('/posts');
   }
@@ -81,7 +82,7 @@ export class EstimatePage {
   prompt.present();
 }
 
-showOptions(postId, clientName, jobType, estimateDate, estimatePrice, longDescription) {
+showOptions(postId, clientNameTop, jobTypeTop, estimateDateTop, estimatePriceTop, longDescriptionTop) {
   let actionSheet = this.actionSheetCtrl.create({
     title: 'What do you want to do?',
     buttons: [
@@ -94,7 +95,7 @@ showOptions(postId, clientName, jobType, estimateDate, estimatePrice, longDescri
       },{
         text: 'Update Estimate Details',
         handler: () => {
-          this.updatePost(postId, clientName, jobType, estimateDate, estimatePrice, longDescription);
+          this.updatePost(postId, clientNameTop, jobTypeTop, estimateDateTop, estimatePriceTop, longDescriptionTop);
         }
       },{
         text: 'Cancel',
@@ -112,35 +113,35 @@ removePost(postId: string){
   this.posts.remove(postId);
 }
 
-updatePost(postId, clientName, jobType, estimateDate, estimatePrice, longDescription){
+updatePost(postId, clientNameTop, jobTypeTop, estimateDateTop, estimatePriceTop, longDescriptionTop){
   let prompt = this.alertCtrl.create({
-    title: 'Post Name',
+    title: 'Update Estimate',
     message: "Update the Estimate.",
     inputs: [
       {
         name: 'clientName',
         placeholder: 'Client Name',
-        value: clientName
+        value: clientNameTop
       },
       {
         name: 'jobType',
         placeholder: 'Type of Job',
-        value: jobType
+        value: jobTypeTop
       },
       {
         name: 'estimateDate',
         placeholder: 'Estimate Date',
-        value: estimateDate
+        value: estimateDateTop
       },
       {
         name: 'estimatePrice',
         placeholder: 'Estimate',
-        value: estimatePrice
+        value: estimatePriceTop
       },
       {
         name: 'longDescription',
         placeholder: 'Job Description',
-        value: longDescription
+        value: longDescriptionTop
       }
     ],
     buttons: [
@@ -166,6 +167,46 @@ updatePost(postId, clientName, jobType, estimateDate, estimatePrice, longDescrip
   });
   prompt.present();
 }
+
+
+sendEmail(){
+this.emailComposer.isAvailable().then((available: boolean) =>{
+ if(available) {
+   //Now we know we can send
+ }
+});
+
+// let email = {
+//   to: 'max@mustermann.de',
+//   cc: 'erika@mustermann.de',
+//   bcc: ['john@doe.com', 'jane@doe.com'],
+//   attachments: [
+//     'file://img/logo.png',
+//     'res://icon.png',
+//     'base64:icon.png//iVBORw0KGgoAAAANSUhEUg...',
+//     'file://README.pdf'
+//   ],
+//   subject: 'Cordova Icons',
+//   body: 'How are you? Nice greetings from Leipzig',
+//   isHtml: true
+// };
+
+// Send a text message using default options
+// this.emailComposer.open(email);
+
+this.emailComposer.open({
+  to: 'max@mustermann.de',
+  cc: 'erika@mustermann.de',
+  bcc: ['john@doe.com', 'jane@doe.com'],
+  subject: 'Cordova Icons',
+  body: 'How are you? Nice greetings from Leipzig',
+  isHtml: true
+
+});
+
+}
+
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EstimatePage');

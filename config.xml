@@ -32,6 +32,8 @@
     </feature>
     <plugin name="cordova-plugin-console" spec="1.0.5" />
     <plugin name="cordova-plugin-device" spec="1.1.4" />
+    <plugin name="cordova-plugin-email" spec="^1.2.6" />
+    <plugin name="cordova-plugin-email-composer" spec="^0.8.3" />
     <plugin name="cordova-plugin-facebook4" spec="^1.9.0">
         <variable name="APP_ID" value="1209143432537813" />
         <variable name="APP_NAME" value="WiseCase" />

@@ -18,6 +18,7 @@ import { SettingsTPage } from '../pages/settings-t/settings-t';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { EmailComposer } from '@ionic-native/email-composer';
 
 
 // // AF2 Settings
@@ -79,7 +80,11 @@ export const firebaseConfig = {
     SettingsTPage
   ],
 
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [
+  EmailComposer,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
+  ]
+
 })
 
 export class AppModule {}

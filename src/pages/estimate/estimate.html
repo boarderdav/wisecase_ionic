@@ -134,9 +134,86 @@
 
 <button class="button_fixed" ion-button color="secondary" block [navPush]="homePage">Sign Up</button>
 
+
+<script>
+document.addEventListener('deviceready', function () {
+    // cordova.plugins.email is now available
+}, false);
+
+cordova.plugins.email.isAvailable(
+    function (isAvailable) {
+        // alert('Service is not available') unless isAvailable;
+    }
+);
+
+cordova.plugins.email.open({
+    to:      'max@mustermann.de',
+    cc:      'erika@mustermann.de',
+    bcc:     ['john@doe.com', 'jane@doe.com'],
+    subject: 'Greetings',
+    body:    'How are you? Nice greetings from Leipzig'
+});
+</script>
+
+<script type="text/javascript">
+
+hasAccount = function (app) {
+
+  cordova.plugins.email.isAvailable(
+      function (isAvailable) {
+          // alert('Service is not available') unless isAvailable;
+      }
+  );
+};
+
+
+openDraft = function (isHtml) {
+    if (isHtml && ['Win32NT', 'windows'].indexOf(device.platform) > -1) {
+        alert('Not supported on that platform!');
+        return;
+    }
+    cordova.plugins.email.open({
+        to: 'to@email.de',
+        cc: ['cc1@email.de', 'cc2@email.de'],
+        bcc: ['bcc1@email.de', 'bcc2@email.de'],
+        subject: isHtml ? 'Body with HTML and CSS3' : 'Body with plain text',
+        body: 'How are you? Nice greetings from Leipzig'
+    }, showToast);
+};
+
+document.addEventListener('deviceready', function () {
+    cordova.plugins.email.isAvailable(
+        function (isAvailable) {
+            alert("is email mobile available? " + (isAvailable ? "Yes" : "No"));
+            if(isAvailable){
+             window.plugin.email.open({
+                 to:      'test@test.com',
+                 subject: 'Greetings',
+                 body:    'How are you? Nice greetings from Leipzig'
+             }, callback, scope);
+           }
+        }
+    );
+}, false);
+
+function callback(){
+    console.log("callback function");
+}
+
+function scope(){
+    console.log("scope function");
+}
+
+</script>
+
+<button ion-button color="secondary" block (click)="openDraft()">Plain,open (to, subject, body)</button>
+<button ion-button color="secondary" block (click)="openDraft(true)">HTMLopen (html:true)</button>
+
+<button ion-button color="secondary" block (click)="isAvailable(app)">HTMLopen (html:true)</button>
+<button ion-button color="secondary" block (click)="hasAccount()">Set up?, hasAccount()</button>
+
+
+
+
 </ion-content>
-
-<button  ion-button color="secondary" block [navPush]="homePage">Sign Up</button>
-
-
 

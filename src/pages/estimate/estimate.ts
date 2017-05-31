@@ -7,6 +7,8 @@ import { EmailComposer } from '@ionic-native/email-composer';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 // import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 
+import { SMS } from '@ionic-native/sms';
+
 
 @Component({
   selector: 'page-estimate',
@@ -27,10 +29,51 @@ export class EstimatePage {
 
   postPage = PostPage;
   settingsTPage = SettingsTPage;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public actionSheetCtrl: ActionSheetController, db: AngularFireDatabase, public emailComposer: EmailComposer) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public actionSheetCtrl: ActionSheetController, db: AngularFireDatabase, public emailComposer: EmailComposer, private sms: SMS) {
 
     this.posts = db.list('/posts');
   }
+
+
+  sendSMS(){
+    var options={
+      replaceLineBreaks: false,
+      android: {
+        intent: 'INTENT'
+
+      }
+    }
+    this.sms.send('7575365000', 'Dear David Jenkins. We are sending you a quote for the Software job for a price of $5,200 on 5/30/17. Please contact us if you have any further questions.', options)
+    .then(()=>{
+      alert("success");
+    },()=>{
+      alert("failed");
+    });
+  }
+
+
+
+
+  sendSMSwithVariables(postId, clientNameTop, clientPhoneNumberTop, jobTypeTop, estimateDateTop, estimatePriceTop, longDescriptionTop){
+
+    var options={
+      replaceLineBreaks: false,
+      android: {
+        intent: 'INTENT'
+
+      }
+    }
+  handler: () => {
+    this.sms.send(clientPhoneNumberTop, 'Dear ' + clientNameTop + '. We are sending you a quote for the ' + jobTypeTop + ' job for a price of $' + estimatePriceTop + ' on ' + estimateDateTop + '. Please contact us if you have any further questions.', options)
+  }
+    .then(()=>{
+      alert("success" + clientPhoneNumberTop);
+    },()=>{
+      alert("failed");
+    });
+  }
+
+
 
   addEstimate(){
   let prompt = this.alertCtrl.create({
@@ -42,16 +85,23 @@ export class EstimatePage {
         placeholder: 'Client Name'
       },
       {
+        name: 'clientPhoneNumber',
+        placeholder: 'Client Phone Number',
+        type: 'tel'
+      },
+      {
         name: 'jobType',
         placeholder: 'Type of Job'
       },
       {
         name: 'estimateDate',
-        placeholder: 'Date'
+        placeholder: 'Date',
+        type: 'date'
       },
       {
         name: 'estimatePrice',
-        placeholder: 'Estimate'
+        placeholder: 'Estimate',
+        type: 'number'
       },
       {
         name: 'longDescription',
@@ -70,6 +120,7 @@ export class EstimatePage {
         handler: data => {
           this.posts.push({
             clientName: data.clientName,
+            clientPhoneNumber: data.clientPhoneNumber,
             jobType: data.jobType,
             estimateDate: data.estimateDate,
             estimatePrice: data.estimatePrice,
@@ -82,7 +133,7 @@ export class EstimatePage {
   prompt.present();
 }
 
-showOptions(postId, clientNameTop, jobTypeTop, estimateDateTop, estimatePriceTop, longDescriptionTop) {
+showOptions(postId, clientNameTop, clientPhoneNumberTop, jobTypeTop, estimateDateTop, estimatePriceTop, longDescriptionTop) {
   let actionSheet = this.actionSheetCtrl.create({
     title: 'What do you want to do?',
     buttons: [
@@ -95,7 +146,7 @@ showOptions(postId, clientNameTop, jobTypeTop, estimateDateTop, estimatePriceTop
       },{
         text: 'Update Estimate Details',
         handler: () => {
-          this.updatePost(postId, clientNameTop, jobTypeTop, estimateDateTop, estimatePriceTop, longDescriptionTop);
+          this.updatePost(postId, clientNameTop, clientPhoneNumberTop, jobTypeTop, estimateDateTop, estimatePriceTop, longDescriptionTop);
         }
       },{
         text: 'Cancel',
@@ -113,7 +164,7 @@ removePost(postId: string){
   this.posts.remove(postId);
 }
 
-updatePost(postId, clientNameTop, jobTypeTop, estimateDateTop, estimatePriceTop, longDescriptionTop){
+updatePost(postId, clientNameTop, clientPhoneNumberTop, jobTypeTop, estimateDateTop, estimatePriceTop, longDescriptionTop){
   let prompt = this.alertCtrl.create({
     title: 'Update Estimate',
     message: "Update the Estimate.",
@@ -122,6 +173,11 @@ updatePost(postId, clientNameTop, jobTypeTop, estimateDateTop, estimatePriceTop,
         name: 'clientName',
         placeholder: 'Client Name',
         value: clientNameTop
+      },
+      {
+        name: 'clientPhoneNumber',
+        placeholder: 'Client Phone Number',
+        value: clientPhoneNumberTop
       },
       {
         name: 'jobType',
@@ -156,6 +212,7 @@ updatePost(postId, clientNameTop, jobTypeTop, estimateDateTop, estimatePriceTop,
         handler: data => {
           this.posts.update(postId, {
             clientName: data.clientName,
+            clientPhoneNumber: data.clientPhoneNumber,
             jobType: data.jobType,
             estimateDate: data.estimateDate,
             estimatePrice: data.estimatePrice,
@@ -167,6 +224,8 @@ updatePost(postId, clientNameTop, jobTypeTop, estimateDateTop, estimatePriceTop,
   });
   prompt.present();
 }
+
+
 
 
 sendEmail(){

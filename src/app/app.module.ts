@@ -19,6 +19,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { EmailComposer } from '@ionic-native/email-composer';
+import { SMS } from '@ionic-native/sms';
+
 
 
 // // AF2 Settings
@@ -82,6 +84,7 @@ export const firebaseConfig = {
 
   providers: [
   EmailComposer,
+  SMS,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 

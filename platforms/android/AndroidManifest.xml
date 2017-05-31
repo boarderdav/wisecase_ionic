@@ -25,7 +25,10 @@
         <receiver android:name="org.apache.cordova.firebase.OnNotificationOpenReceiver" />
     </application>
     <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="25" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
 </manifest>

@@ -36,8 +36,8 @@
       {{post.clientName}}<br>
       <p>{{ post.estimateDate | date }} - #4</p>
       <p>{{ post.longDescription }} </p>
-      <ion-icon name="mail" item-right (click)="sendEmail(isAvailable)"></ion-icon>
-      <ion-icon name="more" item-right (click)="showOptions(post.$key, post.clientName, post.jobType, post.estimateDate, post.estimatePrice, post.longDescription)"></ion-icon>
+      <ion-icon name="text" item-right (click)="sendSMS(post.$key, post.clientName, post.clientPhoneNumber, post.jobType, post.estimateDate, post.estimatePrice, post.longDescription)"></ion-icon>
+      <ion-icon name="more" item-right (click)="showOptions(post.$key, post.clientName, post.clientPhoneNumber, post.jobType, post.estimateDate, post.estimatePrice, post.longDescription)"></ion-icon>
       <p item-right>$ {{ post.estimatePrice }}<br>
       <button ion-button color="light">Draft</button>
     </ion-item>
@@ -206,11 +206,40 @@ function scope(){
 
 </script>
 
+
 <button ion-button color="secondary" block (click)="openDraft()">Plain,open (to, subject, body)</button>
 <button ion-button color="secondary" block (click)="openDraft(true)">HTMLopen (html:true)</button>
 
-<button ion-button color="secondary" block (click)="isAvailable(app)">HTMLopen (html:true)</button>
-<button ion-button color="secondary" block (click)="hasAccount()">Set up?, hasAccount()</button>
+
+<button ion-button color="primary" block (click)="sendSMS()">Send SMS</button>
+<ion-icon name="text" item-right (click)="sendSMS()"></ion-icon>
+
+
+<!-- <input id="numberTxt" placeholder="Enter mobile number" value="" type="tel" />
+<textarea id="messageTxt" placeholder="Enter message"></textarea>
+<input type="button" onclick="app.sendSms()" value="Send SMS" />
+
+<script>var app = {
+    sendSms: function() {
+        var number = document.getElementById('numberTxt').value;
+        var message = document.getElementById('messageTxt').value;
+        console.log("number=" + number + ", message= " + message);
+
+        //CONFIGURATION
+        var options = {
+            replaceLineBreaks: false, // true to replace \n by a new line, false by default
+            android: {
+                intent: 'INTENT'  // send SMS with the native android SMS messaging
+                //intent: '' // send SMS without open any other app
+            }
+        };
+
+        var success = function () { alert('Message sent successfully'); };
+        var error = function (e) { alert('Message Failed:' + e); };
+        sms.send(number, message, options, success, error);
+    }
+};
+</script> -->
 
 
 

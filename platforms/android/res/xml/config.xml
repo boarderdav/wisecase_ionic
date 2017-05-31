@@ -3,6 +3,12 @@
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
+    <feature name="EmailComposer">
+        <param name="android-package" value="de.martinreinhardt.cordova.plugins.email.EmailComposer" />
+    </feature>
+    <feature name="EmailComposer">
+        <param name="android-package" value="de.appplant.cordova.emailcomposer.EmailComposer" />
+    </feature>
     <feature name="FacebookConnectPlugin">
         <param name="android-package" value="org.apache.cordova.facebook.ConnectPlugin" />
         <param name="onload" value="true" />
@@ -35,11 +41,8 @@
         <param name="android-package" value="io.ionic.keyboard.IonicKeyboard" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="EmailComposer">
-        <param name="android-package" value="de.martinreinhardt.cordova.plugins.email.EmailComposer" />
-    </feature>
-    <feature name="EmailComposer">
-        <param name="android-package" value="de.appplant.cordova.emailcomposer.EmailComposer" />
+    <feature name="Sms">
+        <param name="android-package" value="com.cordova.plugins.sms.Sms" />
     </feature>
     <name>wisecase_app</name>
     <description>An awesome Ionic/Cordova app.</description>

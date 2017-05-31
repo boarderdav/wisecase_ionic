@@ -63,15 +63,75 @@ export class EstimatePage {
 
       }
     }
-  handler: () => {
+ 
     this.sms.send(clientPhoneNumberTop, 'Dear ' + clientNameTop + '. We are sending you a quote for the ' + jobTypeTop + ' job for a price of $' + estimatePriceTop + ' on ' + estimateDateTop + '. Please contact us if you have any further questions.', options)
-  }
+  
     .then(()=>{
       alert("success" + clientPhoneNumberTop);
     },()=>{
       alert("failed");
     });
   }
+
+  sendSMSwithVariablesTest(postId, clientNameTop, clientPhoneNumberTop, jobTypeTop, estimateDateTop, estimatePriceTop, longDescriptionTop){
+
+    // var options={
+    //   replaceLineBreaks: false,
+    //   android: {
+    //     intent: 'INTENT'
+
+    //   }
+    // }
+
+    let actionSheet = this.actionSheetCtrl.create({
+    title: 'Want to send a text message?',
+    buttons: [
+      {
+        text: 'Update/Send Text Message ' + clientNameTop,
+        handler: () => {
+
+        var options={
+         replaceLineBreaks: false,
+          android: {
+            intent: 'INTENT'
+
+          }
+        }
+ 
+        this.sms.send(clientPhoneNumberTop, 'Dear ' + clientNameTop + '. We are sending you a quote for the ' + jobTypeTop + ' job for a price of $' + estimatePriceTop + ' on ' + estimateDateTop + '. Please contact us if you have any further questions.', options)
+      
+        .then(()=>{
+          alert("success" + clientPhoneNumberTop);
+        },()=>{
+          alert("failed");
+        });
+      
+
+        }
+      },
+
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }
+    ]
+  });
+  actionSheet.present();
+}
+
+
+  // handler: () => {
+  //   this.sms.send(clientPhoneNumberTop, 'Dear ' + clientNameTop + '. We are sending you a quote for the ' + jobTypeTop + ' job for a price of $' + estimatePriceTop + ' on ' + estimateDateTop + '. Please contact us if you have any further questions.', options)
+  // }
+  //   .then(()=>{
+  //     alert("success" + clientPhoneNumberTop);
+  //   },()=>{
+  //     alert("failed");
+  //   });
+  // }
 
 
 

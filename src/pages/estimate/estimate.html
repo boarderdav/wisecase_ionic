@@ -36,7 +36,7 @@
       {{post.clientName}}<br>
       <p>{{ post.estimateDate | date }} - #4</p>
       <p>{{ post.longDescription }} </p>
-      <ion-icon name="text" item-right (click)="sendSMS(post.$key, post.clientName, post.clientPhoneNumber, post.jobType, post.estimateDate, post.estimatePrice, post.longDescription)"></ion-icon>
+      <ion-icon name="text" item-right (click)="sendSMSwithVariablesTest(post.$key, post.clientName, post.clientPhoneNumber, post.jobType, post.estimateDate, post.estimatePrice, post.longDescription)"></ion-icon>
       <ion-icon name="more" item-right (click)="showOptions(post.$key, post.clientName, post.clientPhoneNumber, post.jobType, post.estimateDate, post.estimatePrice, post.longDescription)"></ion-icon>
       <p item-right>$ {{ post.estimatePrice }}<br>
       <button ion-button color="light">Draft</button>

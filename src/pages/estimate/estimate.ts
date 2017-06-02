@@ -87,7 +87,7 @@ export class EstimatePage {
     title: 'Want to send a text message?',
     buttons: [
       {
-        text: 'Update/Send Text Message ' + clientNameTop,
+        text: 'Send Text Message to ' + clientNameTop,
         handler: () => {
 
         var options={
@@ -101,7 +101,7 @@ export class EstimatePage {
         this.sms.send(clientPhoneNumberTop, 'Dear ' + clientNameTop + '. We are sending you a quote for the ' + jobTypeTop + ' job for a price of $' + estimatePriceTop + ' on ' + estimateDateTop + '. Please contact us if you have any further questions.', options)
       
         .then(()=>{
-          alert("success" + clientPhoneNumberTop);
+          alert("successfully sent to " + clientPhoneNumberTop);
         },()=>{
           alert("failed");
         });

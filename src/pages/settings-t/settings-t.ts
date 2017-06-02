@@ -1,7 +1,8 @@
 
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
-import { NavController } from 'ionic-angular';
+import { NavController, Events } from 'ionic-angular';
 
 // import { FacebookAuth, User, Auth } from '@ionic/cloud-angular';
 
@@ -10,7 +11,8 @@ import { NavController } from 'ionic-angular';
 
 //import { HomePage } from '../home/home';
 
-import { TabsPage } from '../tabs/tabs';
+// import { TabsPage } from '../tabs/tabs';
+import { UserData } from '../../providers/user-data';
 
 // import { SettingsTPage } from '../settings-t/settings-t';
 
@@ -21,10 +23,38 @@ import { TabsPage } from '../tabs/tabs';
 
 export class SettingsTPage {
 
-  // postPage = PostPage;
-  settingsTPage = SettingsTPage;
-  homePage = TabsPage;
-  constructor(public navCtrl: NavController) {}
+// this is new info
+  login: {username?: string, password?: string} = {};
+  submitted = false;
+  message: any;
+
+  constructor(public navCtrl: NavController, public userData: UserData, public events: Events) {
+    this.message = '';
+    this.events.subscribe('user:login_login.ts', (data: any) => {
+      this.message = data;
+    });
+  }
+
+  onLogin(form: NgForm) {
+    this.submitted = true;
+
+    if (form.valid) {
+      this.userData.login(this.login.username, this.login.password);
+      //this.navCtrl.push(TabsPage);
+    }
+  }
+  //this is end of new stuff
+
+
+//this is the old stuff to uncomment out
+
+  // settingsTPage = SettingsTPage;
+  // homePage = TabsPage;
+  // constructor(public navCtrl: NavController) {}
+
+//this is the old stuff end to uncomment out
+
+
 
   // doFacebook() {
   //   console.log('do FB');

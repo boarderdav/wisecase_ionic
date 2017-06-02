@@ -1,7 +1,7 @@
 <!-- <ion-nav [root]="rootPage"></ion-nav> -->
 
 
-<ion-menu [content]="content">
+<!-- <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar>
       <ion-title>Menu</ion-title>
@@ -22,4 +22,75 @@
 
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+<!-- <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav> -->
+
+
+
+
+
+<ion-split-pane>
+
+  <!-- logged out menu -->
+  <ion-menu id="loggedOutMenu" [content]="content">
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content id="grad" >
+
+      <ion-list>
+        <ion-list-header id="clearbackground" style="color:white">
+          Account
+        </ion-list-header>
+        <button id="clearbackground" style="color:white" ion-item menuClose *ngFor="let p of loggedOutPages" (click)="openPage(p)">
+          <ion-icon item-left [name]="p.icon" [color]="isActive(p)"></ion-icon>
+          {{p.title}}
+        </button>
+      </ion-list>
+
+    </ion-content>
+
+  </ion-menu>
+
+  <!-- logged in menu -->
+  <ion-menu id="loggedInMenu" [content]="content">
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content id="grad" >
+
+      <ion-list>
+        <ion-list-header id="clearbackground" style="color:white">
+          Navigate
+        </ion-list-header>
+        <button id="clearbackground" style="color:white" ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
+          <ion-icon item-left [name]="p.icon" [color]="isActive(p)"></ion-icon>
+          {{p.title}}
+        </button>
+      </ion-list>
+
+      <ion-list>
+        <ion-list-header id="clearbackground" style="color:white">
+          Account
+        </ion-list-header>
+        <button id="clearbackground" style="color:white" ion-item menuClose *ngFor="let p of loggedInPages" (click)="openPage(p)">
+          <ion-icon item-left [name]="p.icon" [color]="isActive(p)"></ion-icon>
+          {{p.title}}
+        </button>
+      </ion-list>
+
+    </ion-content>
+
+  </ion-menu>
+
+  <!-- main navigation -->
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main></ion-nav>
+
+</ion-split-pane>

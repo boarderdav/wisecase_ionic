@@ -1,28 +1,11 @@
-<!--
-  Generated template for the SettingsT page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-
-
-<!-- <ion-header>
-
-  <ion-navbar>
-    <ion-title>WiseCase</ion-title>
-  </ion-navbar>
-
-</ion-header> -->
 
 
 <!-- <ion-content style="background-color:#8cbf5d" padding> -->
-<ion-content style="background-image: url('assets/icon/Group2-bg.jpg'); background-size: 100% 100%;
+<!-- <ion-content style="background-image: url('assets/icon/Group2-bg.jpg'); background-size: 100% 100%;
     background-repeat: no-repeat" >
 
 
-<!-- <button (click)="login()">Login</button>
-<button (click)="getdetails()">GetDetails</button>
-<button (click)="logout()">Logout</button> -->
+
 <br><br><br><br><br><br><br><br><br><br><br><br>
 <ion-list>
 
@@ -36,88 +19,50 @@
 
 </ion-list>
 
-<!--    <div padding>
-    <button ion-button color="light" block [navPush]="homePage">Home Page</button>
-  </div>
-
-
-  <div padding>
-  <button ion-button color="primary" full (click)="doFacebook()">
-    <ion-icon name="logo-facebook"></ion-icon>&nbsp;&nbsp;
-    Login with Facebook
-  </button>
-  </div> -->
 
   <div>
     <button ion-button color="secondary" block [navPush]="homePage">Sign Up</button>
     <button ion-button color="secondary" block [navPush]="homePage">Sign In</button>
   </div>
 
+</ion-content> -->
 
 
 
 
 
-</ion-content>
+<ion-content>
 
+<form #loginForm="ngForm" novalidate>
+        <ion-list no-lines>
+            <ion-item>
+                <ion-label stacked color="primary">Username</ion-label>
+                <ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
+                    required>
+                </ion-input>
+            </ion-item>
+            <p ion-text [hidden]="username.valid || submitted == false" color="danger" padding-left>
+                Username is required
+            </p>
 
-<!-- <ion-side-menus enable-menu-with-back-views="false">
-    <ion-side-menu-content>
-        <ion-nav-bar class="bar-dark">
-            <ion-nav-back-button>
-            </ion-nav-back-button>
-            <ion-nav-buttons side="left">
-                <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-                </button>
-            </ion-nav-buttons>
-            <ion-nav-buttons side="right">
-                <button class="button button-icon button-clear ion-navicon" menu-toggle="right">
-                </button>
-            </ion-nav-buttons>
-        </ion-nav-bar>
-        <ion-nav-view name="menuContent"></ion-nav-view>
-    </ion-side-menu-content>
-    <ion-side-menu side="left">
-        <ion-header-bar class="bar-stable">
-            <h1 class="title">Left</h1>
-        </ion-header-bar>
-        <ion-content>
-            <ion-list>
-                <ion-item menu-close ng-click="login()">
-                    Login
-                </ion-item>
-                <ion-item menu-close href="#/app/search">
-                    Search
-                </ion-item>
-                <ion-item menu-close href="#/app/browse">
-                    Browse
-                </ion-item>
-                <ion-item menu-close href="#/app/playlists">
-                    Playlists
-                </ion-item>
-            </ion-list>
-        </ion-content>
-    </ion-side-menu>
-    <ion-side-menu side="right">
-        <ion-header-bar class="bar-stable">
-            <h1 class="title">Right</h1>
-        </ion-header-bar>
-        <ion-content>
-            <ion-list>
-                <ion-item menu-close ng-click="login()">
-                    Login
-                </ion-item>
-                <ion-item menu-close href="#/app/search">
-                    Search
-                </ion-item>
-                <ion-item menu-close href="#/app/browse">
-                    Browse
-                </ion-item>
-                <ion-item menu-close href="#/app/playlists">
-                    Playlists
-                </ion-item>
-            </ion-list>
-        </ion-content>
-    </ion-side-menu>
-</ion-side-menus>
- -->
+            <ion-item>
+                <ion-label stacked color="primary">Password</ion-label>
+                <ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
+                </ion-input>
+            </ion-item>
+            <p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>
+                Password is required
+            </p>
+        </ion-list>
+
+        <ion-row responsive-sm>
+            <ion-col>
+                <button ion-button (click)="onLogin(loginForm)" type="submit" block>Login</button>
+            </ion-col>
+        </ion-row>
+        <div>
+            <p ion-text color="danger" padding-left>{{message}}</p>
+        </div>
+    </form>
+
+</ion-content> 

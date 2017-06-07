@@ -8,6 +8,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 // import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 
 import { SMS } from '@ionic-native/sms';
+import { ModalController, ViewController } from 'ionic-angular';
 
 
 @Component({
@@ -29,9 +30,14 @@ export class EstimatePage {
 
   postPage = PostPage;
   settingsTPage = SettingsTPage;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public actionSheetCtrl: ActionSheetController, db: AngularFireDatabase, public emailComposer: EmailComposer, private sms: SMS) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public alertCtrl: AlertController, public actionSheetCtrl: ActionSheetController, db: AngularFireDatabase, public emailComposer: EmailComposer, private sms: SMS) {
 
     this.posts = db.list('/posts');
+  }
+
+  presentContactModal() {
+    let contactModal = this.modalCtrl.create(PostPage);
+    contactModal.present();
   }
 
 
@@ -237,7 +243,9 @@ updatePost(postId, clientNameTop, clientPhoneNumberTop, jobTypeTop, estimateDate
       {
         name: 'clientPhoneNumber',
         placeholder: 'Client Phone Number',
-        value: clientPhoneNumberTop
+        value: clientPhoneNumberTop,
+        type: 'tel'
+
       },
       {
         name: 'jobType',
@@ -247,12 +255,14 @@ updatePost(postId, clientNameTop, clientPhoneNumberTop, jobTypeTop, estimateDate
       {
         name: 'estimateDate',
         placeholder: 'Estimate Date',
-        value: estimateDateTop
+        value: estimateDateTop,
+        type: 'date'
       },
       {
         name: 'estimatePrice',
         placeholder: 'Estimate',
-        value: estimatePriceTop
+        value: estimatePriceTop,
+        type:'number'
       },
       {
         name: 'longDescription',

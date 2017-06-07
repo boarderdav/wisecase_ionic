@@ -63,20 +63,11 @@
 
 
   </ion-list>
-
+      <button ion-button block [navPush]="tab2Root" (click)="saveItem(dataForm)" type="submit">Save Data</button>
       <button ion-button block [navPush]="tab2Root" (click)="saveItem( clientName.value, typeJob.value, postDate.value, postPrice.value, postDescription.value)">Finish</button>
 <!--       <button ion-button full color="light" [navPush]="tab2Root">Estimate Page</button>
  -->
-
-
-  <h1>{{ item | async | json }}</h1>
-  <input type="text" #newname placeholder="Name" />
-  <input type="text" #newsize placeholder="Size" />
-  <br />
-  <button (click)="save(newname.value)">Set Name</button>
-  <button (click)="update(newsize.value)">Update Size</button>
-  <button (click)="delete()">Delete</button>
-
+<button ion-button color="primary" (click)="dismiss()">Close Modal</button>
 
   <ion-list>
 
@@ -138,17 +129,6 @@
 
   </ion-list> -->
 
-
-
-
-
-
-<!--       description:this.postsMessage, 
-      type:this.postsTitle, 
-      name:this.postsName, 
-      date:this.myDate, 
-      price:this.postsEstimate,
-      created:Date.now() -->
 
 
 

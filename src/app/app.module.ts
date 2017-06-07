@@ -41,7 +41,7 @@ import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { SMS } from '@ionic-native/sms';
 
-// import { AngularFireModule, AngularFireApp } from '@angularfire/app';
+// import { AngularFireModule, AngularFireApp } frodgularfire/app';
 // import { AngularFireDatabaseModule, AngularFireDatabase } from '@angularfire/database';
 // import { AngularFireAuthModule, AngularFireAuth } from '@angularfire/auth';
 

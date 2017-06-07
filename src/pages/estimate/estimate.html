@@ -29,6 +29,7 @@
   <!-- <ion-list reorder="true"> -->
 
     <!-- <button ion-button full color="secondary" [navPush]="postPage">Create New Estimate</button> -->
+    <button ion-button color="primary" (click)="presentContactModal()">ModalTest</button>
     <ion-list-header style="background-color:#3AB9FF; color:white">Newest</ion-list-header>
 
     <ion-item *ngFor="let post of posts | async">

@@ -24,6 +24,10 @@
     <feature name="EmailComposer">
         <param name="ios-package" value="APPEmailComposer" />
     </feature>
+    <feature name="CordovaFacebook">
+        <param name="ios-package" value="CDVFacebook" />
+        <param name="onload" value="true" />
+    </feature>
     <feature name="FacebookConnectPlugin">
         <param name="ios-package" value="FacebookConnectPlugin" />
         <param name="onload" value="true" />
@@ -49,11 +53,11 @@
         <param name="ios-package" value="CDVStatusBar" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="Keyboard">
-        <param name="ios-package" onload="true" value="IonicKeyboard" />
-    </feature>
     <feature name="Sms">
         <param name="ios-package" value="Sms" />
+    </feature>
+    <feature name="Keyboard">
+        <param name="ios-package" onload="true" value="IonicKeyboard" />
     </feature>
     <name>wisecase_app</name>
     <description>An awesome Ionic/Cordova app.</description>

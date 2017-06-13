@@ -77,6 +77,14 @@ module.exports = [
         ]
     },
     {
+        "id": "cordova-sms-plugin.Sms",
+        "file": "plugins/cordova-sms-plugin/www/sms.js",
+        "pluginId": "cordova-sms-plugin",
+        "clobbers": [
+            "window.sms"
+        ]
+    },
+    {
         "id": "ionic-plugin-keyboard.keyboard",
         "file": "plugins/ionic-plugin-keyboard/www/android/keyboard.js",
         "pluginId": "ionic-plugin-keyboard",
@@ -86,11 +94,11 @@ module.exports = [
         "runs": true
     },
     {
-        "id": "cordova-sms-plugin.Sms",
-        "file": "plugins/cordova-sms-plugin/www/sms.js",
-        "pluginId": "cordova-sms-plugin",
+        "id": "cordova-plugin-facebook.CordovaFacebook",
+        "file": "plugins/cordova-plugin-facebook/www/CordovaFacebook.js",
+        "pluginId": "cordova-plugin-facebook",
         "clobbers": [
-            "window.sms"
+            "CordovaFacebook"
         ]
     }
 ];
@@ -101,14 +109,15 @@ module.exports.metadata =
     "cordova-plugin-device": "1.1.4",
     "cordova-plugin-email": "1.2.6",
     "cordova-plugin-email-composer": "0.8.3",
-    "cordova-plugin-facebook4": "1.8.0",
+    "cordova-plugin-facebook4": "1.9.1",
     "cordova-plugin-firebase": "0.1.20",
     "cordova-plugin-nativestorage": "2.2.2",
     "cordova-plugin-splashscreen": "4.0.3",
     "cordova-plugin-statusbar": "2.2.2",
     "cordova-plugin-whitelist": "1.3.1",
+    "cordova-sms-plugin": "0.1.11",
     "ionic-plugin-keyboard": "2.2.1",
-    "cordova-sms-plugin": "0.1.11"
+    "cordova-plugin-facebook": "0.2.2"
 };
 // BOTTOM OF METADATA
 });

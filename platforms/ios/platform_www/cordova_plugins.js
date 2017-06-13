@@ -43,6 +43,14 @@ module.exports = [
         ]
     },
     {
+        "id": "cordova-plugin-facebook.CordovaFacebook",
+        "file": "plugins/cordova-plugin-facebook/www/CordovaFacebook.js",
+        "pluginId": "cordova-plugin-facebook",
+        "clobbers": [
+            "CordovaFacebook"
+        ]
+    },
+    {
         "id": "cordova-plugin-facebook4.FacebookConnectPlugin",
         "file": "plugins/cordova-plugin-facebook4/www/facebook-native.js",
         "pluginId": "cordova-plugin-facebook4",
@@ -93,6 +101,14 @@ module.exports = [
         ]
     },
     {
+        "id": "cordova-sms-plugin.Sms",
+        "file": "plugins/cordova-sms-plugin/www/sms.js",
+        "pluginId": "cordova-sms-plugin",
+        "clobbers": [
+            "window.sms"
+        ]
+    },
+    {
         "id": "ionic-plugin-keyboard.keyboard",
         "file": "plugins/ionic-plugin-keyboard/www/ios/keyboard.js",
         "pluginId": "ionic-plugin-keyboard",
@@ -100,22 +116,6 @@ module.exports = [
             "cordova.plugins.Keyboard"
         ],
         "runs": true
-    },
-    {
-        "id": "phonegap-facebook-plugin.FacebookConnectPlugin",
-        "file": "plugins/phonegap-facebook-plugin/facebookConnectPlugin.js",
-        "pluginId": "phonegap-facebook-plugin",
-        "clobbers": [
-            "facebookConnectPlugin"
-        ]
-    },
-    {
-        "id": "cordova-sms-plugin.Sms",
-        "file": "plugins/cordova-sms-plugin/www/sms.js",
-        "pluginId": "cordova-sms-plugin",
-        "clobbers": [
-            "window.sms"
-        ]
     }
 ];
 module.exports.metadata = 
@@ -125,15 +125,15 @@ module.exports.metadata =
     "cordova-plugin-device": "1.1.4",
     "cordova-plugin-email": "1.2.6",
     "cordova-plugin-email-composer": "0.8.3",
-    "cordova-plugin-facebook4": "1.8.0",
+    "cordova-plugin-facebook": "0.2.2",
+    "cordova-plugin-facebook4": "1.9.1",
     "cordova-plugin-firebase": "0.1.20",
     "cordova-plugin-nativestorage": "2.2.2",
     "cordova-plugin-splashscreen": "4.0.3",
     "cordova-plugin-statusbar": "2.2.2",
     "cordova-plugin-whitelist": "1.3.1",
-    "ionic-plugin-keyboard": "2.2.1",
-    "phonegap-facebook-plugin": "0.12.0",
-    "cordova-sms-plugin": "0.1.11"
+    "cordova-sms-plugin": "0.1.11",
+    "ionic-plugin-keyboard": "2.2.1"
 };
 // BOTTOM OF METADATA
 });

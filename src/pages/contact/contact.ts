@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, ActionSheetController } from 'ionic-angular';
+import { ModalController, ViewController } from 'ionic-angular';
+
 // import { Database } from '@ionic/cloud-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 // import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
+import { PostPage } from '../post/post';
+
 
 
 @Component({
@@ -25,14 +29,84 @@ export class ContactPage {
   // Firebase Setup Lists
   items: FirebaseListObservable<any[]>;
   songs: FirebaseListObservable<any>;
+
+  message: string;
+  year: string;
+  uid:string;
+  interlocutor:string;
+  chats:FirebaseListObservable<any>;
+  // @ViewChild(Content) content: Content;
+
   // items: FirebaseObjectObservable<any>;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public actionSheetCtrl: ActionSheetController, db: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, 
+    public alertCtrl: AlertController, 
+    public actionSheetCtrl: ActionSheetController, 
+    public modalCtrl: ModalController,
+    db: AngularFireDatabase) {
     this.songs = db.list('/songs');
     this.items = db.list('/lists');
+    this.chats = db.list('/chats');
+
+
   }
 
+sendMessage() {
+      if(this.message) {
+          let chat = {
+              // from: this.uid,
+              // message: this.message,
+              type: this.message,
+              year: this.year
+          };
+          this.chats.push(chat);
+          this.message = "";
+      }
+  };
+
+
   addSong(){
+  let prompt = this.alertCtrl.create({
+    title: 'Song Name',
+    message: "Enter a name for this new song you're so keen on adding",
+    inputs: [
+      {
+        name: 'title',
+        placeholder: 'Title'
+      },
+      {
+        name: 'songArtist',
+        placeholder: 'Artist'
+      },
+    ],
+    buttons: [
+      {
+        text: 'Cancel',
+        handler: data => {
+          console.log('Cancel clicked');
+        }
+      },
+      {
+        text: 'Save',
+        handler: data => {
+          this.songs.push({
+            title: data.title,
+            songArtist: data.songArtist
+          });
+        }
+      }
+    ]
+  });
+  prompt.present();
+}
+
+  presentContactModal() {
+    let contactModal = this.modalCtrl.create(PostPage);
+    contactModal.present();
+  }
+
+
+  addSong1(){
   let prompt = this.alertCtrl.create({
     title: 'Song Name',
     message: "Enter a name for this new song you're so keen on adding",

@@ -32,7 +32,7 @@
     <button ion-button color="primary" (click)="presentContactModal()">ModalTest</button>
     <ion-list-header style="background-color:#3AB9FF; color:white">Newest</ion-list-header>
 
-    <ion-item *ngFor="let post of posts | async">
+    <ion-item *ngFor="let post of posts | async ">
       <ion-icon name="contact" item-left></ion-icon>
       {{post.clientName}}<br>
       <p>{{ post.estimateDate | date }} - #4</p>

@@ -24,30 +24,28 @@
     <string>0.0.1</string>
     <key>CFBundleSignature</key>
     <string>????</string>
-    <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>fb1209143432537813</string>
-        </array>
-      </dict>
-    </array>
     <key>CFBundleVersion</key>
     <string>0.0.1</string>
-    <key>FacebookAppID</key>
-    <string>1209143432537813</string>
-    <key>FacebookDisplayName</key>
-    <string>WiseCase</string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-      <string>mailto</string>
-      <string>fbapi</string>
-      <string>fb-messenger-api</string>
-      <string>fbauth2</string>
-      <string>fbshareextension</string>
-    </array>
     <key>LSRequiresIPhoneOS</key>
+    <true/>
+    <key>NSMainNibFile</key>
+    <string/>
+    <key>NSMainNibFile~ipad</key>
+    <string/>
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+      <string>UIInterfaceOrientationPortrait</string>
+      <string>UIInterfaceOrientationLandscapeLeft</string>
+      <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+      <string>UIInterfaceOrientationPortrait</string>
+      <string>UIInterfaceOrientationLandscapeLeft</string>
+      <string>UIInterfaceOrientationPortraitUpsideDown</string>
+      <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>UIRequiresFullScreen</key>
     <true/>
     <key>NSAppTransportSecurity</key>
     <dict>
@@ -78,24 +76,27 @@
       <key>NSAllowsArbitraryLoads</key>
       <true/>
     </dict>
-    <key>NSMainNibFile</key>
-    <string/>
-    <key>NSMainNibFile~ipad</key>
-    <string/>
-    <key>UIRequiresFullScreen</key>
-    <true/>
-    <key>UISupportedInterfaceOrientations</key>
+    <key>LSApplicationQueriesSchemes</key>
     <array>
-      <string>UIInterfaceOrientationPortrait</string>
-      <string>UIInterfaceOrientationLandscapeLeft</string>
-      <string>UIInterfaceOrientationLandscapeRight</string>
+      <string>mailto</string>
+      <string>fbauth</string>
+      <string>fbapi</string>
+      <string>fb-messenger-api</string>
+      <string>fbauth2</string>
+      <string>fbshareextension</string>
     </array>
-    <key>UISupportedInterfaceOrientations~ipad</key>
+    <key>CFBundleURLTypes</key>
     <array>
-      <string>UIInterfaceOrientationPortrait</string>
-      <string>UIInterfaceOrientationLandscapeLeft</string>
-      <string>UIInterfaceOrientationPortraitUpsideDown</string>
-      <string>UIInterfaceOrientationLandscapeRight</string>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>fb1209143432537813</string>
+        </array>
+      </dict>
     </array>
+    <key>FacebookAppID</key>
+    <string>1209143432537813</string>
+    <key>FacebookDisplayName</key>
+    <string>WiseCase</string>
   </dict>
 </plist>

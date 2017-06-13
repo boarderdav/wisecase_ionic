@@ -3,7 +3,8 @@ import { NgForm } from '@angular/forms';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
 // import { Database } from '@ionic/cloud-angular';
 import { EstimatePage } from '../estimate/estimate';
-import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+// import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 import { UserData } from '../../providers/user-data';
 
 
@@ -22,9 +23,15 @@ export class PostPage {
   // public postsEstimate:any = '';
   tab2Root: any = EstimatePage;
 
+  newposts: FirebaseListObservable<any[]>;
+
   newPost: any;
   data: any;
   theItems: any;
+  submitted = false;
+  message: any;
+  // data: {name?: string, text?: string} = any;
+
 
   // typeJob: FirebaseObjectObservable<any[]>;
   // postDate: FirebaseObjectObservable<any[]>; 
@@ -38,9 +45,21 @@ export class PostPage {
     db: AngularFireDatabase, 
     public userData: UserData) {
 
-  this.newPost = db.object('/newPosts');
+  this.newPost = db.list('/newposts');
+  this.message = '';
 
   }
+
+  //  createPost() {
+  //    this.newPost = db.collection('posts').store({
+  // //    description:this.postsMessage, 
+  // //    type:this.postsTitle, 
+  // //    name:this.postsName, 
+  // //    date:this.myDate, 
+  // //    price:this.postsEstimate,
+  // //    created:Date.now()
+  // //   });
+  // // }
 
  // Working Save, Update, & Delete
   // save(newName: string) {
@@ -49,6 +68,41 @@ export class PostPage {
 
   // saveItem(clientName: string, typeJob: string, postDate: any, postPrice: number, postDescription: string) {
   // saveItem(clientName, typeJob, postDate, postPrice, postDescription) {
+ 
+
+
+
+  saveData(form: NgForm) {
+    this.submitted = true;
+
+    if (form.valid) {
+      this.theItems.push(
+        { 
+        name: 'clientName',
+        placeholder: 'Client Name'
+       },
+        {
+        name: 'clientPhoneNumber',
+        placeholder: 'Client Phone Number',
+        type: 'tel'
+       },
+        {
+        name: 'jobType',
+        placeholder: 'Type of Job'
+
+        }
+        )
+      .then((val) => {
+        this.message = 'Item Saved.';
+      })
+      .catch((err) => {
+        console.log(err);
+        this.message = 'Cannot Save The Item.';
+      });
+    }
+  }
+
+
   saveItem(form: NgForm) {
 
     this.newPost = true;
@@ -58,27 +112,6 @@ export class PostPage {
         job: this.data.typeJob
       })
     }
-
-
-    // this.newPost.set({ 
-    //   name: clientName,
-    //   job: typeJob,
-    //   postDate: postDate,
-    //   price: postPrice,
-    //   description: postDescription
-    // }).then( newPosting => {
-    //   this.navCtrl.pop();
-    // }, error =>{
-    //   console.log(error);
-    // });
-
-    
-    //   clientName: clientName,
-    //   typeJob: this.typeJob,
-    //   postDate: this.postDate,
-    //   postPrice: this.postPrice,
-    //   postDescription: this.postDescription 
-    // });
   }
 
   newPosting(){

@@ -5,5 +5,4 @@
     <string name="activity_name">@string/launcher_name</string>
     <string name="google_app_id">@string/google_app_id</string>
     <string name="google_api_key">@string/google_api_key</string>
-    <string name="facebook_app_id">1209143432537813</string>
 </resources>

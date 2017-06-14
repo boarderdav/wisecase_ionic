@@ -7,15 +7,19 @@
     </button>
     <ion-title style="color:white">Estimates</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only [navPush]="postPage">
-        <ion-icon style="color:#3AB9FF" name="add"></ion-icon>
-      </button>
-
-
 
       <button ion-button icon-only (click)="addEstimate()">
         <ion-icon style="color:#3AB9FF" name="add"></ion-icon>
       </button>
+
+    
+      <button ion-button icon-only [navPush]="postPage">
+        <ion-icon  name="add"></ion-icon>
+      </button>
+
+
+
+
 
 
     </ion-buttons>
@@ -29,10 +33,10 @@
   <!-- <ion-list reorder="true"> -->
 
     <!-- <button ion-button full color="secondary" [navPush]="postPage">Create New Estimate</button> -->
-    <button ion-button color="primary" (click)="presentContactModal()">ModalTest</button>
-    <ion-list-header style="background-color:#3AB9FF; color:white">Newest</ion-list-header>
+<!--     <button ion-button color="primary" (click)="presentContactModal()">ModalTest</button>  -->    
+<ion-list-header style="background-color:#3AB9FF; color:white">Newest</ion-list-header>
 
-    <ion-item *ngFor="let post of posts | async ">
+    <ion-item *ngFor="let post of posts | async">
       <ion-icon name="contact" item-left></ion-icon>
       {{post.clientName}}<br>
       <p>{{ post.estimateDate | date }} - #4</p>
@@ -40,7 +44,7 @@
       <ion-icon name="text" item-right (click)="sendSMSwithVariablesTest(post.$key, post.clientName, post.clientPhoneNumber, post.jobType, post.estimateDate, post.estimatePrice, post.longDescription)"></ion-icon>
       <ion-icon name="more" item-right (click)="showOptions(post.$key, post.clientName, post.clientPhoneNumber, post.jobType, post.estimateDate, post.estimatePrice, post.longDescription)"></ion-icon>
       <p item-right>$ {{ post.estimatePrice }}<br>
-      <button ion-button color="light">Draft</button>
+      <button ion-button color="secondary">Sent</button>
     </ion-item>
 
    <!--  <ion-buttons end><button ion-button icon-only  (click)="showOptions(song.$key, song.title)"><ion-icon name="more"></ion-icon></button></ion-buttons> -->

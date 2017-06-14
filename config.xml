@@ -31,15 +31,11 @@
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
     <engine name="android" spec="^6.2.3" />
-    <engine name="ios" spec="^4.4.0" />
+    <engine name="ios" spec="^4.1.0" />
     <plugin name="cordova-plugin-console" spec="1.0.5" />
     <plugin name="cordova-plugin-device" spec="1.1.4" />
     <plugin name="cordova-plugin-email" spec="^1.2.6" />
     <plugin name="cordova-plugin-email-composer" spec="^0.8.3" />
-    <plugin name="cordova-plugin-facebook" spec="^0.2.2">
-        <variable name="FACEBOOK_DISPLAY_NAME" value="WiseCase" />
-        <variable name="FACEBOOK_APP_ID" value="1209143432537813" />
-    </plugin>
     <plugin name="cordova-plugin-facebook4" spec="git+https://github.com/jeduan/cordova-plugin-facebook4.git">
         <variable name="APP_ID" value="1209143432537813" />
         <variable name="APP_NAME" value="WiseCase" />

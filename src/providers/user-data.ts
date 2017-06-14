@@ -5,7 +5,7 @@ import { NavController, Events } from 'ionic-angular';
 //import { Events } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { AngularFire } from 'angularfire2';
-import { TabsPage } from '../pages/tabs/tabs';
+// import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import firebase from 'firebase';
 

@@ -92,14 +92,6 @@ module.exports = [
             "cordova.plugins.Keyboard"
         ],
         "runs": true
-    },
-    {
-        "id": "cordova-plugin-facebook.CordovaFacebook",
-        "file": "plugins/cordova-plugin-facebook/www/CordovaFacebook.js",
-        "pluginId": "cordova-plugin-facebook",
-        "clobbers": [
-            "CordovaFacebook"
-        ]
     }
 ];
 module.exports.metadata = 
@@ -116,8 +108,7 @@ module.exports.metadata =
     "cordova-plugin-statusbar": "2.2.2",
     "cordova-plugin-whitelist": "1.3.1",
     "cordova-sms-plugin": "0.1.11",
-    "ionic-plugin-keyboard": "2.2.1",
-    "cordova-plugin-facebook": "0.2.2"
+    "ionic-plugin-keyboard": "2.2.1"
 };
 // BOTTOM OF METADATA
 });

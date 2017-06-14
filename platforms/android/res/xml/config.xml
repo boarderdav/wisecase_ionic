@@ -66,8 +66,4 @@
     <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="FadeSplashScreenDuration" value="300" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
-    <feature name="CordovaFacebook">
-        <param name="android-package" value="com.blakeisrael.cordova.CordovaFacebook" />
-        <param name="onload" value="true" />
-    </feature>
 </widget>

@@ -21,12 +21,7 @@
 
 @protocol CDVScreenOrientationDelegate <NSObject>
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000  
-- (NSUInteger)supportedInterfaceOrientations;  
-#else  
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations;
-#endif
-
+- (NSUInteger)supportedInterfaceOrientations;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
 - (BOOL)shouldAutorotate;
 

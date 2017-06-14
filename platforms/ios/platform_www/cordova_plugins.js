@@ -1,32 +1,32 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
-        "id": "cordova-plugin-console.console",
         "file": "plugins/cordova-plugin-console/www/console-via-logger.js",
+        "id": "cordova-plugin-console.console",
         "pluginId": "cordova-plugin-console",
         "clobbers": [
             "console"
         ]
     },
     {
-        "id": "cordova-plugin-console.logger",
         "file": "plugins/cordova-plugin-console/www/logger.js",
+        "id": "cordova-plugin-console.logger",
         "pluginId": "cordova-plugin-console",
         "clobbers": [
             "cordova.logger"
         ]
     },
     {
-        "id": "cordova-plugin-device.device",
         "file": "plugins/cordova-plugin-device/www/device.js",
+        "id": "cordova-plugin-device.device",
         "pluginId": "cordova-plugin-device",
         "clobbers": [
             "device"
         ]
     },
     {
-        "id": "cordova-plugin-email.EmailComposer",
         "file": "plugins/cordova-plugin-email/www/email_composer.js",
+        "id": "cordova-plugin-email.EmailComposer",
         "pluginId": "cordova-plugin-email",
         "clobbers": [
             "cordova.plugins.email",
@@ -34,8 +34,8 @@ module.exports = [
         ]
     },
     {
-        "id": "cordova-plugin-email-composer.EmailComposer",
         "file": "plugins/cordova-plugin-email-composer/www/email_composer.js",
+        "id": "cordova-plugin-email-composer.EmailComposer",
         "pluginId": "cordova-plugin-email-composer",
         "clobbers": [
             "cordova.plugins.email",
@@ -43,74 +43,66 @@ module.exports = [
         ]
     },
     {
-        "id": "cordova-plugin-facebook.CordovaFacebook",
-        "file": "plugins/cordova-plugin-facebook/www/CordovaFacebook.js",
-        "pluginId": "cordova-plugin-facebook",
-        "clobbers": [
-            "CordovaFacebook"
-        ]
-    },
-    {
-        "id": "cordova-plugin-facebook4.FacebookConnectPlugin",
         "file": "plugins/cordova-plugin-facebook4/www/facebook-native.js",
+        "id": "cordova-plugin-facebook4.FacebookConnectPlugin",
         "pluginId": "cordova-plugin-facebook4",
         "clobbers": [
             "facebookConnectPlugin"
         ]
     },
     {
-        "id": "cordova-plugin-firebase.FirebasePlugin",
         "file": "plugins/cordova-plugin-firebase/www/firebase.js",
+        "id": "cordova-plugin-firebase.FirebasePlugin",
         "pluginId": "cordova-plugin-firebase",
         "clobbers": [
             "FirebasePlugin"
         ]
     },
     {
-        "id": "cordova-plugin-nativestorage.mainHandle",
         "file": "plugins/cordova-plugin-nativestorage/www/mainHandle.js",
+        "id": "cordova-plugin-nativestorage.mainHandle",
         "pluginId": "cordova-plugin-nativestorage",
         "clobbers": [
             "NativeStorage"
         ]
     },
     {
-        "id": "cordova-plugin-nativestorage.LocalStorageHandle",
         "file": "plugins/cordova-plugin-nativestorage/www/LocalStorageHandle.js",
+        "id": "cordova-plugin-nativestorage.LocalStorageHandle",
         "pluginId": "cordova-plugin-nativestorage"
     },
     {
-        "id": "cordova-plugin-nativestorage.NativeStorageError",
         "file": "plugins/cordova-plugin-nativestorage/www/NativeStorageError.js",
+        "id": "cordova-plugin-nativestorage.NativeStorageError",
         "pluginId": "cordova-plugin-nativestorage"
     },
     {
-        "id": "cordova-plugin-splashscreen.SplashScreen",
         "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+        "id": "cordova-plugin-splashscreen.SplashScreen",
         "pluginId": "cordova-plugin-splashscreen",
         "clobbers": [
             "navigator.splashscreen"
         ]
     },
     {
-        "id": "cordova-plugin-statusbar.statusbar",
         "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+        "id": "cordova-plugin-statusbar.statusbar",
         "pluginId": "cordova-plugin-statusbar",
         "clobbers": [
             "window.StatusBar"
         ]
     },
     {
-        "id": "cordova-sms-plugin.Sms",
         "file": "plugins/cordova-sms-plugin/www/sms.js",
+        "id": "cordova-sms-plugin.Sms",
         "pluginId": "cordova-sms-plugin",
         "clobbers": [
             "window.sms"
         ]
     },
     {
-        "id": "ionic-plugin-keyboard.keyboard",
         "file": "plugins/ionic-plugin-keyboard/www/ios/keyboard.js",
+        "id": "ionic-plugin-keyboard.keyboard",
         "pluginId": "ionic-plugin-keyboard",
         "clobbers": [
             "cordova.plugins.Keyboard"
@@ -125,7 +117,6 @@ module.exports.metadata =
     "cordova-plugin-device": "1.1.4",
     "cordova-plugin-email": "1.2.6",
     "cordova-plugin-email-composer": "0.8.3",
-    "cordova-plugin-facebook": "0.2.2",
     "cordova-plugin-facebook4": "1.9.1",
     "cordova-plugin-firebase": "0.1.20",
     "cordova-plugin-nativestorage": "2.2.2",
@@ -134,6 +125,6 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.3.1",
     "cordova-sms-plugin": "0.1.11",
     "ionic-plugin-keyboard": "2.2.1"
-};
+}
 // BOTTOM OF METADATA
 });

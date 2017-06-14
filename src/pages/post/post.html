@@ -29,8 +29,13 @@
     }); -->
 
     <ion-list-header>
-      Create Quote
+      Create Estimate
     </ion-list-header>
+
+
+<!--           <ion-input type="text"  placeholder="Enter ClientName"
+              [(ngModel)]="clientName">
+          </ion-input> -->
 
     <ion-item>
       <ion-icon name='contact' item-left></ion-icon>
@@ -39,35 +44,47 @@
     </ion-item>
 
     <ion-item>
+      <ion-icon name='call' item-left></ion-icon>
+      <ion-label>Phone Number</ion-label>
+      <ion-input type="tel" [(ngModel)]="clientPhoneNumber" ></ion-input>
+    </ion-item>
+
+    <ion-item>
       <ion-icon name='hammer' item-left></ion-icon>
       <ion-label>Type of Job</ion-label>
-      <ion-input type="text" [(ngModel)]="typeJob" ></ion-input>
+      <ion-input type="text" [(ngModel)]="jobType" ></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-icon name='calendar' item-left></ion-icon>
       <ion-label>Date</ion-label>
-      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="postDate" ></ion-datetime>
-    </ion-item>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="estimateDate" ></ion-datetime>    </ion-item>
 
     <ion-item>
       <ion-icon name='cash' item-left></ion-icon>
-      <ion-label>Price  $</ion-label>
-      <ion-input type="any" [(ngModel)]="postPrice" ></ion-input>
+      <ion-label>Estimate Cost</ion-label>
+      <ion-input type="number" [(ngModel)]="estimatePrice" ></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label color="primary" floating>Job Description</ion-label>
-      <ion-input type="text" [(ngModel)]="postDescription" ></ion-input>
+      <ion-input type="text" [(ngModel)]="longDescription" ></ion-input>
+    </ion-item>
+
+    <ion-item type="hidden" hidden>
+      <ion-label color="primary" hidden></ion-label>
+      <ion-datetime type="hidden" hidden displayFormat="MMM DD, h:mm A" [(ngModel)]="timeSubmitted" ></ion-datetime>
     </ion-item>
 
 
+
+
   </ion-list>
-      <button ion-button block [navPush]="tab2Root" (click)="saveItem(dataForm)" type="submit">Save Data</button>
-      <button ion-button block [navPush]="tab2Root" (click)="saveItem( clientName.value, typeJob.value, postDate.value, postPrice.value, postDescription.value)">Finish</button>
+      <button ion-button block [navPush]="tab2Root" (click)="sendPost()" type="submit">Save Estimate</button>
+      <!-- <button ion-button block [navPush]="tab2Root" (click)="saveItem( clientName.value, typeJob.value, postDate.value, postPrice.value, postDescription.value)">Finish</button> -->
 <!--       <button ion-button full color="light" [navPush]="tab2Root">Estimate Page</button>
  -->
-<button ion-button color="primary" (click)="dismiss()">Close Modal</button>
+<!-- <button ion-button color="primary" (click)="dismiss()">Close Modal</button> -->
 
   <ion-list>
 
@@ -102,18 +119,20 @@
 
   </ion-list>
 
+
+
 <!--   <ion-list>
     <ion-list-header>
       List of Posted Estimates
     </ion-list-header>
-    <ion-item *ngFor="let post of posts">
+    <ion-item *ngFor="let newPosting of newPostings">
       <ion-icon name="contact" item-left></ion-icon>
-      {{post.name}}<br>
+      {{newPosting.clientName}}<br>
       <p>{{ post.date | date }} - #4</p>
       <p>{{ post.description }} </p>
       <ion-icon name="mail" item-right></ion-icon>
       <ion-icon name="calculator" item-right></ion-icon>
-      <p item-right>$ {{ post.price }}<br>
+      <p item-right>$ {{ newPosting.estimatePrice }}<br>
       <button ion-button color="light">Draft</button>
     </ion-item>
 
@@ -128,6 +147,11 @@
     </ion-item>
 
   </ion-list> -->
+
+
+
+
+
 
 
 

@@ -9,7 +9,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 // import { Facebook, NativeStorage } from 'ionic-native';
 
 
-import { TabsPage } from '../pages/tabs/tabs';
+// import { TabsPage } from '../pages/tabs/tabs';
 
 //add pages to show up in toggle menu here
 
@@ -106,7 +106,7 @@ export class MyApp {
   // the left menu only works after login
   // the login page disables the left menu
 appPages: PageInterface[] = [
-    { title: 'Dashboard', component: TabsPage, tabComponent: HomePage, icon: 'create' },
+    { title: 'Dashboard', component: HomePage, icon: 'create' },
     { title: 'Estimate', component: EstimatePage, icon: 'clipboard' },
     { title: 'Create Estimate', component: PostPage, icon: 'text' },
     { title: 'Invoices', component: InvoicesPage, icon: 'contact' },
@@ -116,7 +116,7 @@ appPages: PageInterface[] = [
   ];
   loggedInPages: PageInterface[] = [
     { title: 'Account', component: AccountPage, icon: 'person' },
-    { title: 'Logout', component: TabsPage, icon: 'log-out', logsOut: true }
+    { title: 'Logout', component: HomePage, icon: 'log-out', logsOut: true }
   ];
   loggedOutPages: PageInterface[] = [
     { title: 'Login', component: LoginPage, icon: 'log-in' },
@@ -142,7 +142,7 @@ appPages: PageInterface[] = [
     this.userData.hasLoggedIn().then((hasLoggedIn) => {
       this.enableMenu(hasLoggedIn === true);
       if(hasLoggedIn){
-        this.rootPage = TabsPage;
+        this.rootPage = HomePage;
       }
       else{
         this.rootPage = LoginPage;
@@ -179,12 +179,12 @@ appPages: PageInterface[] = [
   listenToLoginEvents() {
     this.events.subscribe('user:login', () => {
       this.enableMenu(true);
-      this.nav.setRoot(TabsPage);
+      this.nav.setRoot(HomePage);
     });
 
     this.events.subscribe('user:signup', () => {
       this.enableMenu(true);
-      this.nav.setRoot(TabsPage);
+      this.nav.setRoot(HomePage);
     });
 
     this.events.subscribe('user:logout', () => {

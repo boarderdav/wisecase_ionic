@@ -23,13 +23,20 @@ export class PostPage {
   // public postsEstimate:any = '';
   tab2Root: any = EstimatePage;
 
-  newposts: FirebaseListObservable<any[]>;
+  newPostings: FirebaseListObservable<any[]>;
 
-  newPost: any;
-  data: any;
-  theItems: any;
+  // newPost: FirebaseListObservable<any[]>;;
+  // data: FirebaseListObservable<any[]>;
+  theItems: FirebaseListObservable<any[]>;
   submitted = false;
   message: any;
+  clientName: string;
+  clientPhoneNumber: string;
+  jobType: string;
+  estimateDate: string;
+  estimatePrice: string;
+  longDescription: string;
+  timeSubmitted: String = new Date().toISOString();
   // data: {name?: string, text?: string} = any;
 
 
@@ -45,10 +52,32 @@ export class PostPage {
     db: AngularFireDatabase, 
     public userData: UserData) {
 
-  this.newPost = db.list('/newposts');
-  this.message = '';
+  // this.newPost = db.list('/newposts');
+  // this.message = '';
+  this.newPostings = db.list('/posts');
+
 
   }
+
+  sendPost() {
+      if(this.newPostings) {
+          let Postings = {
+              // from: this.uid,
+              // message: this.message,
+              // type: this.message,
+              // year: this.year,
+              clientName: this.clientName,
+              clientPhoneNumber: this.clientPhoneNumber,
+              jobType: this.jobType,
+              estimateDate: this.estimateDate,
+              estimatePrice: this.estimatePrice,
+              longDescription: this.longDescription,
+              timeSubmitted: this.timeSubmitted
+          };
+          this.newPostings.push(Postings);
+          this.message = "";
+      }
+  };
 
   //  createPost() {
   //    this.newPost = db.collection('posts').store({
@@ -72,51 +101,51 @@ export class PostPage {
 
 
 
-  saveData(form: NgForm) {
-    this.submitted = true;
+  // saveData(form: NgForm) {
+  //   this.submitted = true;
 
-    if (form.valid) {
-      this.theItems.push(
-        { 
-        name: 'clientName',
-        placeholder: 'Client Name'
-       },
-        {
-        name: 'clientPhoneNumber',
-        placeholder: 'Client Phone Number',
-        type: 'tel'
-       },
-        {
-        name: 'jobType',
-        placeholder: 'Type of Job'
+  //   if (form.valid) {
+  //     this.theItems.push(
+  //       { 
+  //       name: 'clientName',
+  //       placeholder: 'Client Name'
+  //      },
+  //       {
+  //       name: 'clientPhoneNumber',
+  //       placeholder: 'Client Phone Number',
+  //       type: 'tel'
+  //      },
+  //       {
+  //       name: 'jobType',
+  //       placeholder: 'Type of Job'
 
-        }
-        )
-      .then((val) => {
-        this.message = 'Item Saved.';
-      })
-      .catch((err) => {
-        console.log(err);
-        this.message = 'Cannot Save The Item.';
-      });
-    }
-  }
+  //       }
+  //     )
+  //     .then((val) => {
+  //       this.message = 'Item Saved.';
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //       this.message = 'Cannot Save The Item.';
+  //     });
+  //   }
+  // }
 
 
-  saveItem(form: NgForm) {
+  // saveItem(form: NgForm) {
 
-    this.newPost = true;
-    if (form.valid) {
-      this.theItems.push({ 
-        name: this.data.clientName,
-        job: this.data.typeJob
-      })
-    }
-  }
+  //   this.newPost = true;
+  //   if (form.valid) {
+  //     this.theItems.push({ 
+  //       name: this.data.clientName,
+  //       job: this.data.typeJob
+  //     })
+  //   }
+  // }
 
-  newPosting(){
-    this.navCtrl.push(EstimatePage)
-  }
+  // newPosting(){
+  //   this.navCtrl.push(EstimatePage)
+  // }
 
 }
 
